@@ -295,5 +295,10 @@ namespace CryptCP_automatizator
         {
             file_to_sign.Text = ""; button11.Visible = false;
         }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process.Start("https://github.com/sergiomarotco/CryptCP-automatizator");
+        }
     }
 }

@@ -8,9 +8,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("CryptCP-automatizator")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("https://github.com/sergiomarotco")]
 [assembly: AssemblyProduct("CryptCP-automatizator")]
-[assembly: AssemblyCopyright("Copyright ©  2019")]
+[assembly: AssemblyCopyright("Copyright ©  2019 https://github.com/sergiomarotco")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
