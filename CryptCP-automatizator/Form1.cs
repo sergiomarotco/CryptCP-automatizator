@@ -28,6 +28,7 @@ namespace CryptCP_automatizator
                 }
             }
         }
+
         private void Panel2_DragEnter(object sender, DragEventArgs e)
         {
             if (e.Data.GetData("FileName") is Array data1)
@@ -114,11 +115,6 @@ namespace CryptCP_automatizator
                 WindowStyle = ProcessWindowStyle.Hidden
             };
             Start();
-        }
-
-        private void TextBox2_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void Button5_Click(object sender, EventArgs e)
@@ -214,7 +210,7 @@ namespace CryptCP_automatizator
             File.AppendAllText("EventLog.txt", command + Environment.NewLine);
             Process.Start(startInfo);
         }
-        ProcessStartInfo startInfo = new ProcessStartInfo();
+        private ProcessStartInfo startInfo = new ProcessStartInfo();
         private void Button2_Click(object sender, EventArgs e)
         {
             if (file_to_unsign.Text.Equals(""))
@@ -261,7 +257,7 @@ namespace CryptCP_automatizator
             Process.Start(startInfo);
         }
         /// <summary>
-        /// Открывает окно ыыбора сертификата
+        /// Открывает окно выбора сертификата
         /// </summary>
         /// <param name="title">Выберите свой сертификат</param>
         /// <returns></returns>
@@ -300,7 +296,7 @@ namespace CryptCP_automatizator
             file_to_sign.Text = ""; button11.Visible = false;
         }
 
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void LinkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Process.Start("https://github.com/sergiomarotco/CryptCP-automatizator");
         }

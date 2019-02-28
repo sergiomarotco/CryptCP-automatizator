@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.button1 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.button8 = new System.Windows.Forms.Button();
@@ -151,7 +152,6 @@
             this.Work_folder.Name = "Work_folder";
             this.Work_folder.Size = new System.Drawing.Size(743, 22);
             this.Work_folder.TabIndex = 3;
-            this.Work_folder.TextChanged += new System.EventHandler(this.TextBox2_TextChanged);
             // 
             // label3
             // 
@@ -452,7 +452,7 @@
             this.linkLabel1.TabIndex = 17;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "Author";
-            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabel1_LinkClicked);
             // 
             // Form1
             // 
@@ -473,9 +473,9 @@
             this.Controls.Add(this.CryptCP_folder);
             this.Controls.Add(this.My_Cert);
             this.Controls.Add(this.Work_folder);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(1177, 560);
             this.Name = "Form1";
-            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CryptCP автоматизатор";
             this.Load += new System.EventHandler(this.Form1_Load);
