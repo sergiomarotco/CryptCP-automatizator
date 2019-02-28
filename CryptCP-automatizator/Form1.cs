@@ -188,9 +188,10 @@ namespace CryptCP_automatizator
                     file_to_sign.Text = openFileDialog1.FileName;
                 }
             }
-            string command = "/K " + @CryptCP_folder.Text + " -sign -dn " + My_Cert.Text + " -uMy " + @file_to_sign.Text + " " + @Work_folder.Text + @"\" + @FileName_Signed.Text;
-            startInfo.Arguments = @command;
+            string command = "/K " + @CryptCP_folder.Text + " -sign -dn \"" + My_Cert.Text + "\" -uMy \"" + file_to_sign.Text + "\" \"" + @Work_folder.Text + @"\" + @FileName_Signed.Text+ "\"";
+            startInfo.Arguments = command;
             Process.Start(startInfo);
+            File.AppendAllText("EventLog.txt", command + Environment.NewLine);
             file_to_sign.Text = "";
         }
 
@@ -208,8 +209,9 @@ namespace CryptCP_automatizator
                     file_to_encrypt.Text = openFileDialog1.FileName;
                 }
             }
-            string command = @"/K " + @CryptCP_folder.Text + @" -encr -dn " + @Select_Cert("Выберите получателя для зашифрования") + " -uMy " + @file_to_encrypt.Text + " " + @Work_folder.Text + @"\" + @FileName_Encrypted.Text;
-            startInfo.Arguments = @command;
+            string command = @"/K " + @CryptCP_folder.Text + " -encr -dn \"" + Select_Cert("Выберите получателя для зашифрования") + "\" -uMy \"" + file_to_encrypt.Text + "\" \"" + @Work_folder.Text + @"\" + @FileName_Encrypted.Text+ "\"";
+            startInfo.Arguments = command;
+            File.AppendAllText("EventLog.txt", command + Environment.NewLine);
             Process.Start(startInfo);
         }
         ProcessStartInfo startInfo = new ProcessStartInfo();
@@ -227,8 +229,9 @@ namespace CryptCP_automatizator
                     file_to_unsign.Text = openFileDialog1.FileName;
                 }
             }
-            string command = @"/K " + @CryptCP_folder.Text + @" -verify -dn " + @Select_Cert("Выберите подписавшего") + " -uMy " + @file_to_unsign.Text + " " + @Work_folder.Text + @"\" + FileName_UnSigned.Text;
-            startInfo.Arguments = @command;
+            string command = @"/K " + @CryptCP_folder.Text + " -verify -dn \"" + Select_Cert("Выберите подписавшего") + "\" -uMy \"" + file_to_unsign.Text + "\" \"" + @Work_folder.Text + @"\" + FileName_UnSigned.Text+ "\"";
+            File.AppendAllText("EventLog.txt", command + Environment.NewLine);
+            startInfo.Arguments = command;
             Process.Start(startInfo);
         }
         private void Button1_Click(object sender, EventArgs e)
@@ -252,8 +255,9 @@ namespace CryptCP_automatizator
                 FileName = "cmd.exe",
                 WindowStyle = ProcessWindowStyle.Hidden
             };
-            string command = @"/K " + @CryptCP_folder.Text + @" -decr -dn " + @My_Cert.Text + " -uMy " + @file_to_decrypt.Text + " " + @Work_folder.Text + @"\" + FileName_Decrypted.Text;
-            startInfo.Arguments = @command;
+            string command = @"/K " + @CryptCP_folder.Text + " -decr -dn \"" + My_Cert.Text + "\" -uMy \"" + file_to_decrypt.Text + "\" \"" + @Work_folder.Text + @"\" + FileName_Decrypted.Text+ "\"";
+            startInfo.Arguments = command;
+            File.AppendAllText("EventLog.txt", command + Environment.NewLine);
             Process.Start(startInfo);
         }
         /// <summary>
