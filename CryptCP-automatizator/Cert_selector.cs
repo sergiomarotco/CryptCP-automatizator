@@ -25,7 +25,6 @@ namespace CryptCP_automatizator
         string Selected_Cert = "";
         public List<string> Certs = new List<string>();
 
-
         private void Cert_selector_Load(object sender, EventArgs e)
         {
             var store = new X509Store("MY", StoreLocation.CurrentUser);
@@ -49,13 +48,13 @@ namespace CryptCP_automatizator
             return Selected_Cert;
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void Button2_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.OK;
             this.Close();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.Abort;
             this.Close();
@@ -64,14 +63,18 @@ namespace CryptCP_automatizator
         private void TextBox1_TextChanged(object sender, EventArgs e)
         {
             if (textBox1.Text.Length > 0)
-                listBox1.DataSource = Certs.Where(c => c.ToLower().StartsWith(textBox1.Text.ToLower())).ToList();
+                listBox1.DataSource = Certs.Where(c => c.ToLower().Contains(textBox1.Text.ToLower())).ToList();
             else
                 listBox1.DataSource = Certs;
         }
 
         private void ListBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Selected_Cert = listBox1.SelectedItem.ToString();
+            if (listBox1.SelectedItems.Count > 0)
+            {
+                Selected_Cert = listBox1.SelectedItem.ToString();
+                label4.Text = listBox1.SelectedItem.ToString();
+            }
         }
 
         private void Button3_Click(object sender, EventArgs e)
@@ -99,6 +102,20 @@ namespace CryptCP_automatizator
             if (e.CloseReason == CloseReason.UserClosing)
             {
                 Favorite_Certs = listBox2.Items.OfType<string>().ToArray();
+            }
+            else
+            {
+                DialogResult = DialogResult.Abort;
+                this.Close();
+            }
+        }
+
+        private void ListBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listBox2.SelectedItems.Count > 0)
+            {
+                Selected_Cert = listBox2.SelectedItem.ToString();
+                label4.Text = Selected_Cert;
             }
         }
     }
