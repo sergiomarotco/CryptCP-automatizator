@@ -67,6 +67,7 @@
             this.CryptCP_folder = new System.Windows.Forms.TextBox();
             this.button7 = new System.Windows.Forms.Button();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.button12 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -81,7 +82,7 @@
             this.button1.TabIndex = 0;
             this.button1.Text = "Расшифровать";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.Button1_Click);
+            this.button1.Click += new System.EventHandler(this.Button1_Decrypt);
             // 
             // panel1
             // 
@@ -97,7 +98,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1135, 100);
             this.panel1.TabIndex = 1;
-            this.panel1.DragDrop += new System.Windows.Forms.DragEventHandler(this.Panel1_DragDrop);
             this.panel1.DragEnter += new System.Windows.Forms.DragEventHandler(this.Panel1_DragEnter);
             // 
             // button8
@@ -233,7 +233,7 @@
             this.button2.TabIndex = 0;
             this.button2.Text = "Проверить подпись";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.Button2_Click);
+            this.button2.Click += new System.EventHandler(this.Button2_Verify);
             // 
             // panel3
             // 
@@ -305,7 +305,7 @@
             this.button3.TabIndex = 0;
             this.button3.Text = "Зашифровать";
             this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.Button3_Click);
+            this.button3.Click += new System.EventHandler(this.Button3_Encrypt);
             // 
             // panel4
             // 
@@ -377,7 +377,7 @@
             this.button4.TabIndex = 0;
             this.button4.Text = "Подписать";
             this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.Button4_Click);
+            this.button4.Click += new System.EventHandler(this.Button4_Sign);
             // 
             // label10
             // 
@@ -454,11 +454,22 @@
             this.linkLabel1.Text = "Author";
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabel1_LinkClicked);
             // 
+            // button12
+            // 
+            this.button12.Location = new System.Drawing.Point(1013, 3);
+            this.button12.Name = "button12";
+            this.button12.Size = new System.Drawing.Size(78, 23);
+            this.button12.TabIndex = 18;
+            this.button12.Text = "Открыть";
+            this.button12.UseVisualStyleBackColor = true;
+            this.button12.Click += new System.EventHandler(this.Button12_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1159, 513);
+            this.Controls.Add(this.button12);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.button6);
@@ -532,6 +543,7 @@
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.Button button11;
         private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.Button button12;
     }
 }
 

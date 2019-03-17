@@ -64,7 +64,7 @@
             this.button2.TabIndex = 1;
             this.button2.Text = "Выбрать";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.Button2_Click);
+            this.button2.Click += new System.EventHandler(this.Button2_Click);            
             // 
             // listBox2
             // 
@@ -102,6 +102,7 @@
             this.listBox1.Location = new System.Drawing.Point(0, 0);
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(677, 383);
+            this.listBox1.Sorted = true;
             this.listBox1.TabIndex = 3;
             this.listBox1.SelectedIndexChanged += new System.EventHandler(this.ListBox1_SelectedIndexChanged);
             // 

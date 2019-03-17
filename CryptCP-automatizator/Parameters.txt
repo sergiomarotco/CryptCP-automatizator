@@ -1,8 +1,8 @@
 Work_folder	C:\Users\Sergiomarotco\Source\Repos\CryptCP-automatizator\CryptCP-automatizator\bin\Debug
 My_Cert	CN=Sergiomarotco
-FileName_Decrypted	Decrypted.txt
-FileName_Encrypted	Encrypted.txt
-FileName_Signed	Signed.txt
-FileName_UnSigned	UnSigned.txt
+FileName_Decrypted	Decrypted
+FileName_Encrypted	Encrypted
+FileName_Signed	Signed
+FileName_UnSigned	UnSigned
 CryptCP_folder	C:\Users\Sergiomarotco\Source\Repos\CryptCP-automatizator\CryptCP-automatizator\bin\Debug\cryptcp.x64.exe
 Favorite_Certs	CN=Sergiomarotco

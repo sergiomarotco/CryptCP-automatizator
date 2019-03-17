@@ -40,7 +40,8 @@ namespace CryptCP_automatizator
                 Certs.Add(xname); 
             }
             listBox1.DataSource = Certs;
-            store.Close(); 
+            store.Close();
+            button1.Focus();
         }
 
         internal string Get_Selected_Cert()

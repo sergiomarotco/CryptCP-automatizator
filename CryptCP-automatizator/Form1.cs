@@ -155,11 +155,6 @@ namespace CryptCP_automatizator
             catch { }
         }
 
-        private void Panel1_DragDrop(object sender, DragEventArgs e)
-        {
-
-        }
-
         private void Button7_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog1 = new OpenFileDialog() { Filter = "Исполняемые файлы(*.exe)|*.exe" };
@@ -170,8 +165,10 @@ namespace CryptCP_automatizator
             }
         }
 
-        private void Button4_Click(object sender, EventArgs e)
+        private void Button4_Sign(object sender, EventArgs e)
         {
+            string filename = "not_selected";
+            string filetype = "not_selected";
             if (file_to_sign.Text.Equals(""))
             {
                 OpenFileDialog openFileDialog1 = new OpenFileDialog//выбор файла для подписания
@@ -182,17 +179,28 @@ namespace CryptCP_automatizator
                 if (openFileDialog1.ShowDialog() == DialogResult.OK)
                 {
                     file_to_sign.Text = openFileDialog1.FileName;
+                    button11.Visible = true;
                 }
             }
-            string command = "/K " + @CryptCP_folder.Text + " -sign -dn \"" + @My_Cert.Text + "\" -uMy \"" + file_to_sign.Text + "\" \"" + @Work_folder.Text + @"\" + @FileName_Signed.Text+ "\"";
-            startInfo.Arguments = command;
-            Process.Start(startInfo);
-            File.AppendAllText("EventLog.txt", command + Environment.NewLine);
-            file_to_sign.Text = "";
+            if (File.Exists(file_to_sign.Text))
+            {
+                FileInfo info = new FileInfo(file_to_sign.Text);
+                filename = info.Name.Split('.')[0];
+                filetype = info.Extension;
+
+                string command = "/K " + @CryptCP_folder.Text + " -sign -dn \"" + @My_Cert.Text + "\" -uMy \"" + @file_to_sign.Text + "\" \"" + @Work_folder.Text + @"\" + filename + "_" + @FileName_Signed.Text + filetype + "\"";
+                startInfo.Arguments = command;
+                Process.Start(startInfo);
+                File.AppendAllText("EventLog.txt", command + Environment.NewLine);
+                file_to_encrypt.Text = @Work_folder.Text + @"\" + filename + "_" + @FileName_Signed.Text + filetype;
+                button10.Visible = true;
+            }
         }
 
-        private void Button3_Click(object sender, EventArgs e)
+        private void Button3_Encrypt(object sender, EventArgs e)
         {
+            string filename = "not_selected";
+            string filetype = "not_selected";
             if (file_to_encrypt.Text.Equals(""))
             {
                 OpenFileDialog openFileDialog1 = new OpenFileDialog//Выбор файла для зашифрования
@@ -203,16 +211,28 @@ namespace CryptCP_automatizator
                 if (openFileDialog1.ShowDialog() == DialogResult.OK)
                 {
                     file_to_encrypt.Text = openFileDialog1.FileName;
+                    button10.Visible = true;
                 }
             }
-            string command = @"/K " + @CryptCP_folder.Text + " -encr -dn \"" + @Select_Cert("Выберите получателя для зашифрования") + "\" -uMy \"" + file_to_encrypt.Text + "\" \"" + @Work_folder.Text + @"\" + @FileName_Encrypted.Text+ "\"";
-            startInfo.Arguments = command;
-            File.AppendAllText("EventLog.txt", command + Environment.NewLine);
-            Process.Start(startInfo);
+            if (File.Exists(file_to_encrypt.Text))
+            {
+                FileInfo info = new FileInfo(file_to_encrypt.Text);
+                filename = info.Name.Split('.')[0];
+                filetype = info.Extension;
+
+                string command = @"/K " + @CryptCP_folder.Text + " -encr -dn \"" + @Select_Cert("Выберите получателя для зашифрования") + "\" -uMy \"" + @file_to_encrypt.Text + "\" \"" + @Work_folder.Text + @"\" + filename + "_" + @FileName_Encrypted.Text + filetype + "\"";
+                startInfo.Arguments = command;
+                File.AppendAllText("EventLog.txt", command + Environment.NewLine);
+                Process.Start(startInfo);
+                file_to_sign.Text = @Work_folder.Text + @"\" + filename + "_" + @FileName_Encrypted.Text + filetype;
+                button11.Visible = true;
+            }
         }
         private ProcessStartInfo startInfo = new ProcessStartInfo();
-        private void Button2_Click(object sender, EventArgs e)
+        private void Button2_Verify(object sender, EventArgs e)
         {
+            string filename = "not_selected";
+            string filetype = "not_selected";
             if (file_to_unsign.Text.Equals(""))
             {
                 OpenFileDialog openFileDialog1 = new OpenFileDialog//Выбор файла для проверки подписи
@@ -223,15 +243,27 @@ namespace CryptCP_automatizator
                 if (openFileDialog1.ShowDialog() == DialogResult.OK)
                 {
                     file_to_unsign.Text = openFileDialog1.FileName;
+                    button9.Visible = true;
                 }
             }
-            string command = @"/K " + @CryptCP_folder.Text + " -verify -dn \"" + @Select_Cert("Выберите подписавшего") + "\" -uMy \"" + file_to_unsign.Text + "\" \"" + @Work_folder.Text + @"\" + FileName_UnSigned.Text+ "\"";
-            File.AppendAllText("EventLog.txt", command + Environment.NewLine);
-            startInfo.Arguments = command;
-            Process.Start(startInfo);
+            if (File.Exists(file_to_unsign.Text))
+            {
+                FileInfo info = new FileInfo(file_to_unsign.Text);
+                filename = info.Name.Split('.')[0];
+                filetype = info.Extension;
+
+                string command = @"/K " + @CryptCP_folder.Text + " -verify -dn \"" + @Select_Cert("Выберите подписавшего") + "\" -uMy \"" + @file_to_unsign.Text + "\" \"" + @Work_folder.Text + @"\" + filename + "_" + FileName_UnSigned.Text + filetype + "\"";
+                File.AppendAllText("EventLog.txt", command + Environment.NewLine);
+                startInfo.Arguments = command;
+                Process.Start(startInfo);
+                file_to_decrypt.Text = @Work_folder.Text + @"\" + filename + "_" + FileName_UnSigned.Text + filetype;
+                button8.Visible = true;
+            }
         }
-        private void Button1_Click(object sender, EventArgs e)
+        private void Button1_Decrypt(object sender, EventArgs e)
         {
+            string filename = "not_selected";
+            string filetype = "not_selected";
             if (file_to_decrypt.Text.Equals(""))
             {
                 OpenFileDialog openFileDialog1 = new OpenFileDialog//выбор файла для расшифрования
@@ -239,22 +271,25 @@ namespace CryptCP_automatizator
                     InitialDirectory = Work_folder.Text,
                     Title = "Выберите файл для расшифрования"
                 };
-                if (openFileDialog1.ShowDialog() == DialogResult.OK)
+                if (openFileDialog1.ShowDialog() == DialogResult.OK) //файл выбран - да
                 {
                     file_to_decrypt.Text = openFileDialog1.FileName;
+                    button8.Visible = true;
                 }
             }
-            ProcessStartInfo startInfo = new ProcessStartInfo
+            if (File.Exists(file_to_decrypt.Text))
             {
-                CreateNoWindow = false,
-                UseShellExecute = false,
-                FileName = "cmd.exe",
-                WindowStyle = ProcessWindowStyle.Hidden
-            };
-            string command = @"/K " + @CryptCP_folder.Text + " -decr -dn \"" + @My_Cert.Text + "\" -uMy \"" + file_to_decrypt.Text + "\" \"" + @Work_folder.Text + @"\" + FileName_Decrypted.Text+ "\"";
-            startInfo.Arguments = command;
-            File.AppendAllText("EventLog.txt", command + Environment.NewLine);
-            Process.Start(startInfo);
+                FileInfo info = new FileInfo(file_to_decrypt.Text);
+                filename = info.Name.Split('.')[0];
+                filetype = info.Extension;
+
+                string command = @"/K " + @CryptCP_folder.Text + " -decr -dn \"" + @My_Cert.Text + "\" -uMy \"" + @file_to_decrypt.Text + "\" \"" + @Work_folder.Text + @"\" + filename + "_" + @FileName_Decrypted.Text + filetype + "\"";
+                startInfo.Arguments = command;
+                File.AppendAllText("EventLog.txt", command + Environment.NewLine);
+                Process.Start(startInfo);
+                file_to_unsign.Text = @Work_folder.Text + @"\" + filename + "_" + @FileName_Decrypted.Text + filetype;
+                button9.Visible = true;
+            }
         }
         /// <summary>
         /// Открывает окно выбора сертификата
@@ -299,6 +334,11 @@ namespace CryptCP_automatizator
         private void LinkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Process.Start("https://github.com/sergiomarotco/CryptCP-automatizator");
+        }
+
+        private void Button12_Click(object sender, EventArgs e)
+        {
+            Process.Start("explorer", Work_folder.Text);
         }
     }
 }
