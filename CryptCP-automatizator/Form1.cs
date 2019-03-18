@@ -104,6 +104,25 @@ namespace CryptCP_automatizator
                     }
                 }
             }
+            else
+            {
+                Generate_Parameters();
+            }
+        }
+        private void Generate_Parameters()
+        {
+            string[] text = new string[]
+            {
+                    "Work_folder\t"               + @Environment.CurrentDirectory,
+                    "My_Cert\t"           +"CN=InputYourCN",
+                    "FileName_Decrypted\tDecrypted",
+                    "FileName_Encrypted\tEncrypted",
+                    "FileName_Signed\tSigned",
+                    "FileName_UnSigned\tUnSigned",
+                    "CryptCP_folder\t"    +@Environment.CurrentDirectory,
+                    "Favorite_Certs\t"    +@"CN=InputYourCN|CN=InputYourCN_2|CN=InputYourCN_3"
+            };
+            File.WriteAllLines(Environment.CurrentDirectory + "\\Parameters.txt", text);
         }
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -139,20 +158,27 @@ namespace CryptCP_automatizator
         }
         private void Save_Parameters()
         {
-            try
+            if (File.Exists(Environment.CurrentDirectory + "\\Parameters.txt"))
             {
-                string[] content = new string[parameters_count];
-                content[0] = "Work_folder\t" + Work_folder.Text;
-                content[1] = "My_Cert\t" + My_Cert.Text;
-                content[2] = "FileName_Decrypted\t" + FileName_Decrypted.Text;
-                content[3] = "FileName_Encrypted\t" + FileName_Encrypted.Text;
-                content[4] = "FileName_Signed\t" + FileName_Signed.Text;
-                content[5] = "FileName_UnSigned\t" + FileName_UnSigned.Text;
-                content[6] = "CryptCP_folder\t" + CryptCP_folder.Text;
-                content[7] = "Favorite_Certs\t" + String.Join("|", Favorite_Certs);
-                File.WriteAllLines(Environment.CurrentDirectory + "\\Parameters.txt", content);
+                try
+                {
+                    string[] content = new string[parameters_count];
+                    content[0] = "Work_folder\t" + Work_folder.Text;
+                    content[1] = "My_Cert\t" + My_Cert.Text;
+                    content[2] = "FileName_Decrypted\t" + FileName_Decrypted.Text;
+                    content[3] = "FileName_Encrypted\t" + FileName_Encrypted.Text;
+                    content[4] = "FileName_Signed\t" + FileName_Signed.Text;
+                    content[5] = "FileName_UnSigned\t" + FileName_UnSigned.Text;
+                    content[6] = "CryptCP_folder\t" + CryptCP_folder.Text;
+                    content[7] = "Favorite_Certs\t" + String.Join("|", Favorite_Certs);
+                    File.WriteAllLines(Environment.CurrentDirectory + "\\Parameters.txt", content);
+                }
+                catch { }
             }
-            catch { }
+            else
+            {
+                Generate_Parameters();
+            }
         }
 
         private void Button7_Click(object sender, EventArgs e)
@@ -221,7 +247,7 @@ namespace CryptCP_automatizator
                 filetype = info.Extension;
 
                 string command = @"/K " + @CryptCP_folder.Text + " -encr -dn \"" + @Select_Cert("Выберите получателя для зашифрования") + "\" -uMy \"" + @file_to_encrypt.Text + "\" \"" + @Work_folder.Text + @"\" + filename + "_" + @FileName_Encrypted.Text + filetype + "\"";
-                startInfo.Arguments = command;
+                startInfo.Arguments = @command;
                 File.AppendAllText("EventLog.txt", command + Environment.NewLine);
                 Process.Start(startInfo);
                 file_to_sign.Text = @Work_folder.Text + @"\" + filename + "_" + @FileName_Encrypted.Text + filetype;
@@ -339,6 +365,26 @@ namespace CryptCP_automatizator
         private void Button12_Click(object sender, EventArgs e)
         {
             Process.Start("explorer", Work_folder.Text);
+        }
+
+        private void FileName_Decrypted_TextChanged(object sender, EventArgs e)
+        {
+            Save_Parameters();
+        }
+
+        private void FileName_UnSigned_TextChanged(object sender, EventArgs e)
+        {
+            Save_Parameters();
+        }
+
+        private void FileName_Encrypted_TextChanged(object sender, EventArgs e)
+        {
+            Save_Parameters();
+        }
+
+        private void FileName_Signed_TextChanged(object sender, EventArgs e)
+        {
+            Save_Parameters();
         }
     }
 }

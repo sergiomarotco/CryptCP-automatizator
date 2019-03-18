@@ -73,8 +73,12 @@ namespace CryptCP_automatizator
         {
             if (listBox1.SelectedItems.Count > 0)
             {
-                Selected_Cert = listBox1.SelectedItem.ToString();
-                label4.Text = listBox1.SelectedItem.ToString();
+                string xname = listBox1.SelectedItem.ToString().Split(',')[0];
+                xname = xname.Substring(3, xname.Length - 3);
+                xname = xname.Trim('"');
+                xname = xname.Replace("\"", "\"\"");//экранируем кавычки для тупого cmd
+                Selected_Cert = xname;
+                label4.Text = xname;
             }
         }
 

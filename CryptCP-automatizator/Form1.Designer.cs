@@ -31,30 +31,34 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.button1 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button8 = new System.Windows.Forms.Button();
             this.file_to_decrypt = new System.Windows.Forms.Label();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.button8 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.FileName_Decrypted = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.Work_folder = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.button9 = new System.Windows.Forms.Button();
             this.file_to_unsign = new System.Windows.Forms.Label();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.button9 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.FileName_UnSigned = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.button10 = new System.Windows.Forms.Button();
             this.file_to_encrypt = new System.Windows.Forms.Label();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.button10 = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.FileName_Encrypted = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.button11 = new System.Windows.Forms.Button();
             this.file_to_sign = new System.Windows.Forms.Label();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.button11 = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.FileName_Signed = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -68,10 +72,6 @@
             this.button7 = new System.Windows.Forms.Button();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.button12 = new System.Windows.Forms.Button();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.panel8 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -82,7 +82,7 @@
             // 
             this.button1.Location = new System.Drawing.Point(191, 61);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(148, 23);
+            this.button1.Size = new System.Drawing.Size(158, 23);
             this.button1.TabIndex = 0;
             this.button1.Text = "Расшифровать";
             this.button1.UseVisualStyleBackColor = true;
@@ -92,9 +92,9 @@
             // 
             this.panel1.AllowDrop = true;
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.panel1.Controls.Add(this.file_to_decrypt);
             this.panel1.Controls.Add(this.panel5);
             this.panel1.Controls.Add(this.button8);
-            this.panel1.Controls.Add(this.file_to_decrypt);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.FileName_Decrypted);
             this.panel1.Controls.Add(this.label1);
@@ -105,24 +105,33 @@
             this.panel1.TabIndex = 1;
             this.panel1.DragEnter += new System.Windows.Forms.DragEventHandler(this.Panel1_DragEnter);
             // 
+            // file_to_decrypt
+            // 
+            this.file_to_decrypt.AutoSize = true;
+            this.file_to_decrypt.Location = new System.Drawing.Point(188, 11);
+            this.file_to_decrypt.Name = "file_to_decrypt";
+            this.file_to_decrypt.Size = new System.Drawing.Size(0, 17);
+            this.file_to_decrypt.TabIndex = 5;
+            // 
+            // panel5
+            // 
+            this.panel5.BackgroundImage = global::CryptCP_automatizator.Properties.Resources.DnD;
+            this.panel5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel5.Location = new System.Drawing.Point(828, 0);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(200, 100);
+            this.panel5.TabIndex = 7;
+            // 
             // button8
             // 
-            this.button8.Location = new System.Drawing.Point(1047, 35);
+            this.button8.Location = new System.Drawing.Point(1034, 35);
             this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(85, 23);
+            this.button8.Size = new System.Drawing.Size(98, 23);
             this.button8.TabIndex = 6;
             this.button8.Text = "Очистить";
             this.button8.UseVisualStyleBackColor = true;
             this.button8.Visible = false;
             this.button8.Click += new System.EventHandler(this.Button8_Click);
-            // 
-            // file_to_decrypt
-            // 
-            this.file_to_decrypt.AutoSize = true;
-            this.file_to_decrypt.Location = new System.Drawing.Point(272, 11);
-            this.file_to_decrypt.Name = "file_to_decrypt";
-            this.file_to_decrypt.Size = new System.Drawing.Size(0, 17);
-            this.file_to_decrypt.TabIndex = 5;
             // 
             // label2
             // 
@@ -140,6 +149,7 @@
             this.FileName_Decrypted.Name = "FileName_Decrypted";
             this.FileName_Decrypted.Size = new System.Drawing.Size(179, 22);
             this.FileName_Decrypted.TabIndex = 3;
+            this.FileName_Decrypted.TextChanged += new System.EventHandler(this.FileName_Decrypted_TextChanged);
             // 
             // label1
             // 
@@ -155,7 +165,7 @@
             // 
             this.Work_folder.Location = new System.Drawing.Point(168, 3);
             this.Work_folder.Name = "Work_folder";
-            this.Work_folder.Size = new System.Drawing.Size(743, 22);
+            this.Work_folder.Size = new System.Drawing.Size(718, 22);
             this.Work_folder.TabIndex = 3;
             // 
             // label3
@@ -172,9 +182,9 @@
             // 
             this.panel2.AllowDrop = true;
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.panel2.Controls.Add(this.file_to_unsign);
             this.panel2.Controls.Add(this.panel6);
             this.panel2.Controls.Add(this.button9);
-            this.panel2.Controls.Add(this.file_to_unsign);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.FileName_UnSigned);
             this.panel2.Controls.Add(this.label5);
@@ -185,24 +195,33 @@
             this.panel2.TabIndex = 5;
             this.panel2.DragEnter += new System.Windows.Forms.DragEventHandler(this.Panel2_DragEnter);
             // 
+            // file_to_unsign
+            // 
+            this.file_to_unsign.AutoSize = true;
+            this.file_to_unsign.Location = new System.Drawing.Point(188, 11);
+            this.file_to_unsign.Name = "file_to_unsign";
+            this.file_to_unsign.Size = new System.Drawing.Size(0, 17);
+            this.file_to_unsign.TabIndex = 5;
+            // 
+            // panel6
+            // 
+            this.panel6.BackgroundImage = global::CryptCP_automatizator.Properties.Resources.DnD;
+            this.panel6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel6.Location = new System.Drawing.Point(828, 0);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(200, 100);
+            this.panel6.TabIndex = 8;
+            // 
             // button9
             // 
-            this.button9.Location = new System.Drawing.Point(1047, 35);
+            this.button9.Location = new System.Drawing.Point(1034, 35);
             this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(85, 23);
+            this.button9.Size = new System.Drawing.Size(98, 23);
             this.button9.TabIndex = 6;
             this.button9.Text = "Очистить";
             this.button9.UseVisualStyleBackColor = true;
             this.button9.Visible = false;
             this.button9.Click += new System.EventHandler(this.Button9_Click);
-            // 
-            // file_to_unsign
-            // 
-            this.file_to_unsign.AutoSize = true;
-            this.file_to_unsign.Location = new System.Drawing.Point(295, 11);
-            this.file_to_unsign.Name = "file_to_unsign";
-            this.file_to_unsign.Size = new System.Drawing.Size(0, 17);
-            this.file_to_unsign.TabIndex = 5;
             // 
             // label4
             // 
@@ -220,6 +239,7 @@
             this.FileName_UnSigned.Name = "FileName_UnSigned";
             this.FileName_UnSigned.Size = new System.Drawing.Size(179, 22);
             this.FileName_UnSigned.TabIndex = 3;
+            this.FileName_UnSigned.TextChanged += new System.EventHandler(this.FileName_UnSigned_TextChanged);
             // 
             // label5
             // 
@@ -235,7 +255,7 @@
             // 
             this.button2.Location = new System.Drawing.Point(191, 61);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(148, 23);
+            this.button2.Size = new System.Drawing.Size(158, 23);
             this.button2.TabIndex = 0;
             this.button2.Text = "Проверить подпись";
             this.button2.UseVisualStyleBackColor = true;
@@ -245,9 +265,9 @@
             // 
             this.panel3.AllowDrop = true;
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.panel3.Controls.Add(this.file_to_encrypt);
             this.panel3.Controls.Add(this.panel7);
             this.panel3.Controls.Add(this.button10);
-            this.panel3.Controls.Add(this.file_to_encrypt);
             this.panel3.Controls.Add(this.label6);
             this.panel3.Controls.Add(this.FileName_Encrypted);
             this.panel3.Controls.Add(this.label7);
@@ -258,24 +278,33 @@
             this.panel3.TabIndex = 6;
             this.panel3.DragEnter += new System.Windows.Forms.DragEventHandler(this.Panel3_DragEnter);
             // 
+            // file_to_encrypt
+            // 
+            this.file_to_encrypt.AutoSize = true;
+            this.file_to_encrypt.Location = new System.Drawing.Point(188, 11);
+            this.file_to_encrypt.Name = "file_to_encrypt";
+            this.file_to_encrypt.Size = new System.Drawing.Size(0, 17);
+            this.file_to_encrypt.TabIndex = 5;
+            // 
+            // panel7
+            // 
+            this.panel7.BackgroundImage = global::CryptCP_automatizator.Properties.Resources.DnD;
+            this.panel7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel7.Location = new System.Drawing.Point(828, 0);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(200, 100);
+            this.panel7.TabIndex = 8;
+            // 
             // button10
             // 
-            this.button10.Location = new System.Drawing.Point(1047, 35);
+            this.button10.Location = new System.Drawing.Point(1034, 35);
             this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(88, 23);
+            this.button10.Size = new System.Drawing.Size(101, 23);
             this.button10.TabIndex = 6;
             this.button10.Text = "Очистить";
             this.button10.UseVisualStyleBackColor = true;
             this.button10.Visible = false;
             this.button10.Click += new System.EventHandler(this.Button10_Click);
-            // 
-            // file_to_encrypt
-            // 
-            this.file_to_encrypt.AutoSize = true;
-            this.file_to_encrypt.Location = new System.Drawing.Point(246, 11);
-            this.file_to_encrypt.Name = "file_to_encrypt";
-            this.file_to_encrypt.Size = new System.Drawing.Size(0, 17);
-            this.file_to_encrypt.TabIndex = 5;
             // 
             // label6
             // 
@@ -293,6 +322,7 @@
             this.FileName_Encrypted.Name = "FileName_Encrypted";
             this.FileName_Encrypted.Size = new System.Drawing.Size(179, 22);
             this.FileName_Encrypted.TabIndex = 3;
+            this.FileName_Encrypted.TextChanged += new System.EventHandler(this.FileName_Encrypted_TextChanged);
             // 
             // label7
             // 
@@ -308,7 +338,7 @@
             // 
             this.button3.Location = new System.Drawing.Point(191, 61);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(148, 23);
+            this.button3.Size = new System.Drawing.Size(158, 23);
             this.button3.TabIndex = 0;
             this.button3.Text = "Зашифровать";
             this.button3.UseVisualStyleBackColor = true;
@@ -318,9 +348,9 @@
             // 
             this.panel4.AllowDrop = true;
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.panel4.Controls.Add(this.file_to_sign);
             this.panel4.Controls.Add(this.panel8);
             this.panel4.Controls.Add(this.button11);
-            this.panel4.Controls.Add(this.file_to_sign);
             this.panel4.Controls.Add(this.label8);
             this.panel4.Controls.Add(this.FileName_Signed);
             this.panel4.Controls.Add(this.label9);
@@ -331,24 +361,33 @@
             this.panel4.TabIndex = 7;
             this.panel4.DragEnter += new System.Windows.Forms.DragEventHandler(this.Panel4_DragEnter);
             // 
+            // file_to_sign
+            // 
+            this.file_to_sign.AutoSize = true;
+            this.file_to_sign.Location = new System.Drawing.Point(188, 11);
+            this.file_to_sign.Name = "file_to_sign";
+            this.file_to_sign.Size = new System.Drawing.Size(0, 17);
+            this.file_to_sign.TabIndex = 5;
+            // 
+            // panel8
+            // 
+            this.panel8.BackgroundImage = global::CryptCP_automatizator.Properties.Resources.DnD;
+            this.panel8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel8.Location = new System.Drawing.Point(828, 0);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(200, 100);
+            this.panel8.TabIndex = 8;
+            // 
             // button11
             // 
-            this.button11.Location = new System.Drawing.Point(1047, 35);
+            this.button11.Location = new System.Drawing.Point(1034, 35);
             this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(85, 23);
+            this.button11.Size = new System.Drawing.Size(98, 23);
             this.button11.TabIndex = 6;
             this.button11.Text = "Очистить";
             this.button11.UseVisualStyleBackColor = true;
             this.button11.Visible = false;
             this.button11.Click += new System.EventHandler(this.Button11_Click);
-            // 
-            // file_to_sign
-            // 
-            this.file_to_sign.AutoSize = true;
-            this.file_to_sign.Location = new System.Drawing.Point(240, 11);
-            this.file_to_sign.Name = "file_to_sign";
-            this.file_to_sign.Size = new System.Drawing.Size(0, 17);
-            this.file_to_sign.TabIndex = 5;
             // 
             // label8
             // 
@@ -366,6 +405,7 @@
             this.FileName_Signed.Name = "FileName_Signed";
             this.FileName_Signed.Size = new System.Drawing.Size(179, 22);
             this.FileName_Signed.TabIndex = 3;
+            this.FileName_Signed.TextChanged += new System.EventHandler(this.FileName_Signed_TextChanged);
             // 
             // label9
             // 
@@ -381,7 +421,7 @@
             // 
             this.button4.Location = new System.Drawing.Point(191, 61);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(148, 23);
+            this.button4.Size = new System.Drawing.Size(158, 23);
             this.button4.TabIndex = 0;
             this.button4.Text = "Подписать";
             this.button4.UseVisualStyleBackColor = true;
@@ -401,14 +441,14 @@
             // 
             this.My_Cert.Location = new System.Drawing.Point(168, 58);
             this.My_Cert.Name = "My_Cert";
-            this.My_Cert.Size = new System.Drawing.Size(743, 22);
+            this.My_Cert.Size = new System.Drawing.Size(718, 22);
             this.My_Cert.TabIndex = 3;
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(917, 3);
+            this.button5.Location = new System.Drawing.Point(892, 3);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(90, 23);
+            this.button5.Size = new System.Drawing.Size(102, 23);
             this.button5.TabIndex = 9;
             this.button5.Text = "Выбрать";
             this.button5.UseVisualStyleBackColor = true;
@@ -416,9 +456,9 @@
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(917, 58);
+            this.button6.Location = new System.Drawing.Point(892, 58);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(90, 23);
+            this.button6.Size = new System.Drawing.Size(102, 23);
             this.button6.TabIndex = 10;
             this.button6.Text = "Выбрать";
             this.button6.UseVisualStyleBackColor = true;
@@ -438,14 +478,14 @@
             // 
             this.CryptCP_folder.Location = new System.Drawing.Point(168, 30);
             this.CryptCP_folder.Name = "CryptCP_folder";
-            this.CryptCP_folder.Size = new System.Drawing.Size(743, 22);
+            this.CryptCP_folder.Size = new System.Drawing.Size(718, 22);
             this.CryptCP_folder.TabIndex = 3;
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(917, 29);
+            this.button7.Location = new System.Drawing.Point(892, 32);
             this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(90, 23);
+            this.button7.Size = new System.Drawing.Size(102, 23);
             this.button7.TabIndex = 11;
             this.button7.Text = "Выбрать";
             this.button7.UseVisualStyleBackColor = true;
@@ -454,7 +494,7 @@
             // linkLabel1
             // 
             this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(1097, 3);
+            this.linkLabel1.Location = new System.Drawing.Point(1097, 6);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(50, 17);
             this.linkLabel1.TabIndex = 17;
@@ -464,49 +504,13 @@
             // 
             // button12
             // 
-            this.button12.Location = new System.Drawing.Point(1013, 3);
+            this.button12.Location = new System.Drawing.Point(1000, 3);
             this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(78, 23);
+            this.button12.Size = new System.Drawing.Size(91, 23);
             this.button12.TabIndex = 18;
             this.button12.Text = "Открыть";
             this.button12.UseVisualStyleBackColor = true;
             this.button12.Click += new System.EventHandler(this.Button12_Click);
-            // 
-            // panel5
-            // 
-            this.panel5.BackgroundImage = global::CryptCP_automatizator.Properties.Resources.DnD;
-            this.panel5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel5.Location = new System.Drawing.Point(841, 0);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(200, 100);
-            this.panel5.TabIndex = 7;
-            // 
-            // panel6
-            // 
-            this.panel6.BackgroundImage = global::CryptCP_automatizator.Properties.Resources.DnD;
-            this.panel6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel6.Location = new System.Drawing.Point(841, 0);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(200, 100);
-            this.panel6.TabIndex = 8;
-            // 
-            // panel7
-            // 
-            this.panel7.BackgroundImage = global::CryptCP_automatizator.Properties.Resources.DnD;
-            this.panel7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel7.Location = new System.Drawing.Point(841, 0);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(200, 100);
-            this.panel7.TabIndex = 8;
-            // 
-            // panel8
-            // 
-            this.panel8.BackgroundImage = global::CryptCP_automatizator.Properties.Resources.DnD;
-            this.panel8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel8.Location = new System.Drawing.Point(841, 0);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(200, 100);
-            this.panel8.TabIndex = 8;
             // 
             // Form1
             // 
