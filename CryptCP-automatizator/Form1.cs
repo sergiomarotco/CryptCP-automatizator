@@ -325,7 +325,7 @@ namespace CryptCP_automatizator
         private string Select_Cert(string title)
         {
             string Selected_cert = "";
-            CS = new Cert_selector(title,Favorite_Certs);
+            CS = new Cert_selector(title, Favorite_Certs);
             CS.ShowDialog();
             if (CS.DialogResult == DialogResult.OK)
             {
@@ -385,6 +385,88 @@ namespace CryptCP_automatizator
         private void FileName_Signed_TextChanged(object sender, EventArgs e)
         {
             Save_Parameters();
+        }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+            if (File.Exists(file_to_decrypt.Text))
+            {
+                try { Process.Start("explorer.exe", @"/select, " + file_to_decrypt.Text); }
+                catch (Exception exc) { }
+            }
+        }
+
+
+        private void button14_Click(object sender, EventArgs e)
+        {
+            if (File.Exists(file_to_unsign.Text))
+            {
+                try { Process.Start("explorer.exe", @"/select, " + file_to_unsign.Text); }
+                catch (Exception exc) { }
+            }
+        }
+
+        private void button15_Click(object sender, EventArgs e)
+        {
+            if (File.Exists(file_to_encrypt.Text))
+            {
+                try { Process.Start("explorer.exe", @"/select, " + file_to_encrypt.Text); }
+                catch (Exception exc) { }
+            }
+        }
+
+        private void button16_Click(object sender, EventArgs e)
+        {
+            if (File.Exists(file_to_sign.Text))
+            {
+                try { Process.Start("explorer.exe", @"/select, " + file_to_sign.Text); }
+                catch (Exception exc) { }
+            }
+        }
+
+        private void button17_Click(object sender, EventArgs e)
+        {
+            if (File.Exists(file_to_unsign.Text))
+            {
+                try { Process.Start("explorer.exe", @"/select, " + file_to_unsign.Text); }
+                catch (Exception exc) { }
+            }
+        }
+
+        private void button18_Click(object sender, EventArgs e)
+        {
+            if (File.Exists(file_to_decrypt.Text))
+            {
+                try { Process.Start("explorer.exe", @"/select, " + file_to_decrypt.Text); }
+                catch (Exception exc) { }
+            }
+        }
+
+        private void button19_Click(object sender, EventArgs e)
+        {
+            if (File.Exists(file_to_sign.Text))
+            {
+                try { Process.Start("explorer.exe", @"/select, " + file_to_sign.Text); }
+                catch (Exception exc) { }
+            }
+        }
+
+        private void button20_Click(object sender, EventArgs e)
+        {
+            if (File.Exists(file_to_encrypt.Text))
+            {
+                try { Process.Start("explorer.exe", @"/select, " + file_to_encrypt.Text); }
+                catch (Exception exc) { }
+            }
+        }
+
+        private void button21_Click(object sender, EventArgs e)
+        {
+            if (File.Exists(CryptCP_folder.Text))
+            {
+                try { Process.Start("explorer.exe", @"/select, " + CryptCP_folder.Text); }
+                catch (Exception exc) { }
+            }
         }
     }
 }
