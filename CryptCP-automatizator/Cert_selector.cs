@@ -137,5 +137,20 @@ namespace CryptCP_automatizator
                 this.Close();
             }
         }
+
+        private void listBox1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            if (listBox1.SelectedItems.Count > 0)
+            {
+                string xname = listBox1.SelectedItem.ToString().Split(',')[0];
+                xname = xname.Substring(3, xname.Length - 3);
+                xname = xname.Trim('"');
+                xname = xname.Replace("\"", "\"\"");//экранируем кавычки для тупого cmd
+                Selected_Cert = xname;
+                label4.Text = xname;
+                DialogResult = DialogResult.OK;
+                this.Close();
+            }
+        }
     }
 }
