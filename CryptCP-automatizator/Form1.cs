@@ -428,7 +428,7 @@ namespace CryptCP_automatizator
             if (File.Exists(file_to_unsign.Text))
             {
                 try { Process.Start("explorer.exe", @"/select, " + file_to_unsign.Text); }
-                catch  { }
+                catch { }
             }
         }
 
@@ -437,7 +437,7 @@ namespace CryptCP_automatizator
             if (File.Exists(file_to_encrypt.Text))
             {
                 try { Process.Start("explorer.exe", @"/select, " + file_to_encrypt.Text); }
-                catch  { }
+                catch { }
             }
         }
 
@@ -446,7 +446,7 @@ namespace CryptCP_automatizator
             if (File.Exists(file_to_sign.Text))
             {
                 try { Process.Start("explorer.exe", @"/select, " + file_to_sign.Text); }
-                catch  { }
+                catch { }
             }
         }
 
@@ -455,7 +455,7 @@ namespace CryptCP_automatizator
             if (File.Exists(file_to_unsign.Text))
             {
                 try { Process.Start("explorer.exe", @"/select, " + file_to_unsign.Text); }
-                catch  { }
+                catch { }
             }
         }
 
@@ -482,7 +482,7 @@ namespace CryptCP_automatizator
             if (File.Exists(file_to_encrypt.Text))
             {
                 try { Process.Start("explorer.exe", @"/select, " + file_to_encrypt.Text); }
-                catch  { }
+                catch { }
             }
         }
 
@@ -491,7 +491,7 @@ namespace CryptCP_automatizator
             if (File.Exists(CryptCP_folder.Text))
             {
                 try { Process.Start("explorer.exe", @"/select, " + CryptCP_folder.Text); }
-                catch  { }
+                catch { }
             }
         }
 
@@ -500,9 +500,9 @@ namespace CryptCP_automatizator
             if (File.Exists(file_to_unsign.Text))
             {
                 System.Collections.Specialized.StringCollection replacementList = new System.Collections.Specialized.StringCollection();
-            replacementList.Add(file_to_unsign.Text);
-            Clipboard.SetFileDropList(replacementList);
-        }
+                replacementList.Add(file_to_unsign.Text);
+                Clipboard.SetFileDropList(replacementList);
+            }
         }
 
         private void button23_Click(object sender, EventArgs e)
@@ -520,19 +520,19 @@ namespace CryptCP_automatizator
             if (File.Exists(file_to_sign.Text))
             {
                 System.Collections.Specialized.StringCollection replacementList = new System.Collections.Specialized.StringCollection();
-            replacementList.Add(file_to_sign.Text);
-            Clipboard.SetFileDropList(replacementList);
-        }
+                replacementList.Add(file_to_sign.Text);
+                Clipboard.SetFileDropList(replacementList);
+            }
         }
 
-    private void button25_Click(object sender, EventArgs e)
+        private void button25_Click(object sender, EventArgs e)
         {
             if (File.Exists(file_to_encrypt.Text))
             {
                 System.Collections.Specialized.StringCollection replacementList = new System.Collections.Specialized.StringCollection();
-        replacementList.Add(file_to_encrypt.Text);
-        Clipboard.SetFileDropList(replacementList);
-    }
+                replacementList.Add(file_to_encrypt.Text);
+                Clipboard.SetFileDropList(replacementList);
+            }
         }
     }
 }
