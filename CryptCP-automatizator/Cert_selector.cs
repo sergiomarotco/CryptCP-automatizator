@@ -99,6 +99,9 @@ namespace CryptCP_automatizator
             {
                 listBox2.Items.RemoveAt(listBox2.SelectedIndex);
                 Favorite_Certs = listBox2.Items.OfType<string>().ToArray();
+                listBox2.Focus();
+                if(listBox2.Items.Count!=0)
+                    listBox2.SelectedIndex = 0;
             }
         }
 
@@ -121,6 +124,17 @@ namespace CryptCP_automatizator
             {
                 Selected_Cert = listBox2.SelectedItem.ToString();
                 label4.Text = Selected_Cert;
+            }
+        }
+
+        private void listBox2_MouseDoubleClick(object sender, MouseEventArgs e)
+        {//https://github.com/sergiomarotco/CryptCP-automatizator/issues/4
+            if (listBox2.SelectedItems.Count > 0)
+            {
+                Selected_Cert = listBox2.SelectedItem.ToString();
+                label4.Text = Selected_Cert;
+                DialogResult = DialogResult.OK;
+                this.Close();
             }
         }
     }

@@ -63,46 +63,50 @@ namespace CryptCP_automatizator
                 }
             }
         }
-        string[] Favorite_Certs;
-        int parameters_count = 0;
+        private void Load_Parameters()
+        {
+            string[] parameters = File.ReadAllLines("Parameters.txt");
+            parameters_count = parameters.Length;
+            for (int i = 0; i < parameters.Length; i++)
+            {
+                string[] parameter = parameters[i].Split('\t');
+                switch (parameter[0])
+                {
+                    case "Work_folder":
+                        Work_folder.Text = parameter[1];
+                        break;
+                    case "My_Cert": //    Заполняем поле "Выбранный шаблон документы"
+                        My_Cert.Text = parameter[1];
+                        break;
+                    case "FileName_Decrypted": //  Заполняем поле "Выбранный шаблон замены"
+                        FileName_Decrypted.Text = parameter[1];
+                        break;
+                    case "FileName_Encrypted": //  Заполняем поле "Выбранный шаблон замены"
+                        FileName_Encrypted.Text = parameter[1];
+                        break;
+                    case "FileName_Signed": //  Заполняем поле "Выбранный шаблон замены"
+                        FileName_Signed.Text = parameter[1];
+                        break;
+                    case "FileName_UnSigned": //  Заполняем поле "Выбранный шаблон замены"
+                        FileName_UnSigned.Text = parameter[1];
+                        break;
+                    case "CryptCP_folder": //  Заполняем поле "Выбранный шаблон замены"
+                        CryptCP_folder.Text = parameter[1];
+                        break;
+                    case "Favorite_Certs": //   Заполняем список избранных сертификатов
+                        Favorite_Certs = parameter[1].Split('|');
+                        break;
+                    default: break;
+                }
+            }
+        }
+        private string[] Favorite_Certs;
+        private int parameters_count = 0;
         private void Start()
         {
             if (File.Exists("Parameters.txt"))
             {
-                string[] parameters = File.ReadAllLines("Parameters.txt");
-                parameters_count = parameters.Length;
-                for (int i = 0; i < parameters.Length; i++)
-                {
-                    string[] parameter = parameters[i].Split('\t');
-                    switch (parameter[0])
-                    {
-                        case "Work_folder":
-                            Work_folder.Text = parameter[1];
-                            break;
-                        case "My_Cert": //    Заполняем поле "Выбранный шаблон документы"
-                            My_Cert.Text = parameter[1];
-                            break;
-                        case "FileName_Decrypted": //  Заполняем поле "Выбранный шаблон замены"
-                            FileName_Decrypted.Text = parameter[1];
-                            break;
-                        case "FileName_Encrypted": //  Заполняем поле "Выбранный шаблон замены"
-                            FileName_Encrypted.Text = parameter[1];
-                            break;
-                        case "FileName_Signed": //  Заполняем поле "Выбранный шаблон замены"
-                            FileName_Signed.Text = parameter[1];
-                            break;
-                        case "FileName_UnSigned": //  Заполняем поле "Выбранный шаблон замены"
-                            FileName_UnSigned.Text = parameter[1];
-                            break;
-                        case "CryptCP_folder": //  Заполняем поле "Выбранный шаблон замены"
-                            CryptCP_folder.Text = parameter[1];
-                            break;
-                        case "Favorite_Certs": //   Заполняем список избранных сертификатов
-                            Favorite_Certs = parameter[1].Split('|');
-                            break;
-                        default: break;
-                    }
-                }
+                Load_Parameters();
             }
             else
             {
@@ -114,15 +118,16 @@ namespace CryptCP_automatizator
             string[] text = new string[]
             {
                     "Work_folder\t"               + @Environment.CurrentDirectory,
-                    "My_Cert\t"           +"CN=InputYourCN",
+                    "My_Cert\t"           +"CN=Выберите_ваш_CN",
                     "FileName_Decrypted\tDecrypted",
                     "FileName_Encrypted\tEncrypted",
                     "FileName_Signed\tSigned",
                     "FileName_UnSigned\tUnSigned",
                     "CryptCP_folder\t"    +@Environment.CurrentDirectory,
-                    "Favorite_Certs\t"    +@"CN=InputYourCN|CN=InputYourCN_2|CN=InputYourCN_3"
+                    "Favorite_Certs\t"    +@"CN=Введите_ваш_CN|CN=Введите_ваш_CN_2|CN=Введите_ваш_CN_3"
             };
             File.WriteAllLines(Environment.CurrentDirectory + "\\Parameters.txt", text);
+            Load_Parameters(); //https://github.com/sergiomarotco/CryptCP-automatizator/issues/3
         }
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -208,19 +213,29 @@ namespace CryptCP_automatizator
                     button11.Visible = true;
                 }
             }
-            if (File.Exists(file_to_sign.Text))
+            if (!My_Cert.Text.Equals("CN=InputYourCN"))
             {
-                FileInfo info = new FileInfo(file_to_sign.Text);
-                filename = info.Name.Split('.')[0];
-                filetype = info.Extension;
+                if (!String.IsNullOrEmpty(My_Cert.Text))
+                {
+                    if (File.Exists(file_to_sign.Text))
+                    {
 
-                string command = "/K " + @CryptCP_folder.Text + " -sign -dn \"" + @My_Cert.Text + "\" -uMy \"" + @file_to_sign.Text + "\" \"" + @Work_folder.Text + @"\" + filename + "_" + @FileName_Signed.Text + filetype + "\"";
-                startInfo.Arguments = command;
-                Process.Start(startInfo);
-                File.AppendAllText("EventLog.txt", command + Environment.NewLine);
-                file_to_encrypt.Text = @Work_folder.Text + @"\" + filename + "_" + @FileName_Signed.Text + filetype;
-                button10.Visible = true;
+                        FileInfo info = new FileInfo(file_to_sign.Text);
+                        filename = info.Name.Split('.')[0];
+                        filetype = info.Extension;
+
+                        string command = "/K " + @CryptCP_folder.Text + " -sign -dn \"" + @My_Cert.Text + "\" -uMy \"" + @file_to_sign.Text + "\" \"" + @Work_folder.Text + @"\" + filename + "_" + @FileName_Signed.Text + filetype + "\"";
+                        startInfo.Arguments = command;
+                        Process.Start(startInfo);
+                        File.AppendAllText("EventLog.txt", command + Environment.NewLine);
+                        file_to_encrypt.Text = @Work_folder.Text + @"\" + filename + "_" + @FileName_Signed.Text + filetype;
+                        button10.Visible = true;
+                    }
+                    else { MessageBox.Show("Не удается открыть выбранный файл"); }
+                }
+                else { MessageBox.Show("Вы не выбрали Сертифика КПЭП (поле не заполнено)"); }
             }
+            else { MessageBox.Show("Вы не выбрали Сертифика КПЭП (поле содержит CN по умолчанию)"); }
         }
 
         private void Button3_Encrypt(object sender, EventArgs e)
@@ -303,19 +318,30 @@ namespace CryptCP_automatizator
                     button8.Visible = true;
                 }
             }
-            if (File.Exists(file_to_decrypt.Text))
+            if (!My_Cert.Text.Equals("CN=InputYourCN"))
             {
-                FileInfo info = new FileInfo(file_to_decrypt.Text);
-                filename = info.Name.Split('.')[0];
-                filetype = info.Extension;
+                if (!String.IsNullOrEmpty(My_Cert.Text))
+                {
+                    if (File.Exists(file_to_decrypt.Text))
+                    {
 
-                string command = @"/K " + @CryptCP_folder.Text + " -decr -dn \"" + @My_Cert.Text + "\" -uMy \"" + @file_to_decrypt.Text + "\" \"" + @Work_folder.Text + @"\" + filename + "_" + @FileName_Decrypted.Text + filetype + "\"";
-                startInfo.Arguments = command;
-                File.AppendAllText("EventLog.txt", command + Environment.NewLine);
-                Process.Start(startInfo);
-                file_to_unsign.Text = @Work_folder.Text + @"\" + filename + "_" + @FileName_Decrypted.Text + filetype;
-                button9.Visible = true;
+                        FileInfo info = new FileInfo(file_to_decrypt.Text);
+                        filename = info.Name.Split('.')[0];
+                        filetype = info.Extension;
+
+                        string command = @"/K " + @CryptCP_folder.Text + " -decr -dn \"" + @My_Cert.Text + "\" -uMy \"" + @file_to_decrypt.Text + "\" \"" + @Work_folder.Text + @"\" + filename + "_" + @FileName_Decrypted.Text + filetype + "\"";
+                        startInfo.Arguments = command;
+                        File.AppendAllText("EventLog.txt", command + Environment.NewLine);
+                        Process.Start(startInfo);
+                        file_to_unsign.Text = @Work_folder.Text + @"\" + filename + "_" + @FileName_Decrypted.Text + filetype;
+
+                        button9.Visible = true;
+                    }
+                    else { MessageBox.Show("Не удается открыть выбранный файл"); }
+                }
+                else { MessageBox.Show("Вы не выбрали Сертифика КПЭП (поле не заполнено)"); }
             }
+            else { MessageBox.Show("Вы не выбрали Сертифика КПЭП (поле содержит CN по умолчанию)"); }
         }
         /// <summary>
         /// Открывает окно выбора сертификата
@@ -392,7 +418,7 @@ namespace CryptCP_automatizator
             if (File.Exists(file_to_decrypt.Text))
             {
                 try { Process.Start("explorer.exe", @"/select, " + file_to_decrypt.Text); }
-                catch (Exception exc) { }
+                catch { }
             }
         }
 
@@ -402,7 +428,7 @@ namespace CryptCP_automatizator
             if (File.Exists(file_to_unsign.Text))
             {
                 try { Process.Start("explorer.exe", @"/select, " + file_to_unsign.Text); }
-                catch (Exception exc) { }
+                catch  { }
             }
         }
 
@@ -411,7 +437,7 @@ namespace CryptCP_automatizator
             if (File.Exists(file_to_encrypt.Text))
             {
                 try { Process.Start("explorer.exe", @"/select, " + file_to_encrypt.Text); }
-                catch (Exception exc) { }
+                catch  { }
             }
         }
 
@@ -420,7 +446,7 @@ namespace CryptCP_automatizator
             if (File.Exists(file_to_sign.Text))
             {
                 try { Process.Start("explorer.exe", @"/select, " + file_to_sign.Text); }
-                catch (Exception exc) { }
+                catch  { }
             }
         }
 
@@ -429,7 +455,7 @@ namespace CryptCP_automatizator
             if (File.Exists(file_to_unsign.Text))
             {
                 try { Process.Start("explorer.exe", @"/select, " + file_to_unsign.Text); }
-                catch (Exception exc) { }
+                catch  { }
             }
         }
 
@@ -438,7 +464,7 @@ namespace CryptCP_automatizator
             if (File.Exists(file_to_decrypt.Text))
             {
                 try { Process.Start("explorer.exe", @"/select, " + file_to_decrypt.Text); }
-                catch (Exception exc) { }
+                catch { }
             }
         }
 
@@ -447,7 +473,7 @@ namespace CryptCP_automatizator
             if (File.Exists(file_to_sign.Text))
             {
                 try { Process.Start("explorer.exe", @"/select, " + file_to_sign.Text); }
-                catch (Exception exc) { }
+                catch { }
             }
         }
 
@@ -456,7 +482,7 @@ namespace CryptCP_automatizator
             if (File.Exists(file_to_encrypt.Text))
             {
                 try { Process.Start("explorer.exe", @"/select, " + file_to_encrypt.Text); }
-                catch (Exception exc) { }
+                catch  { }
             }
         }
 
@@ -465,8 +491,48 @@ namespace CryptCP_automatizator
             if (File.Exists(CryptCP_folder.Text))
             {
                 try { Process.Start("explorer.exe", @"/select, " + CryptCP_folder.Text); }
-                catch (Exception exc) { }
+                catch  { }
             }
+        }
+
+        private void button22_Click(object sender, EventArgs e)
+        {
+            if (File.Exists(file_to_unsign.Text))
+            {
+                System.Collections.Specialized.StringCollection replacementList = new System.Collections.Specialized.StringCollection();
+            replacementList.Add(file_to_unsign.Text);
+            Clipboard.SetFileDropList(replacementList);
+        }
+        }
+
+        private void button23_Click(object sender, EventArgs e)
+        {
+            if (File.Exists(file_to_decrypt.Text))
+            {
+                System.Collections.Specialized.StringCollection replacementList = new System.Collections.Specialized.StringCollection();
+                replacementList.Add(file_to_decrypt.Text);
+                Clipboard.SetFileDropList(replacementList);
+            }
+        }
+
+        private void button24_Click(object sender, EventArgs e)
+        {
+            if (File.Exists(file_to_sign.Text))
+            {
+                System.Collections.Specialized.StringCollection replacementList = new System.Collections.Specialized.StringCollection();
+            replacementList.Add(file_to_sign.Text);
+            Clipboard.SetFileDropList(replacementList);
+        }
+        }
+
+    private void button25_Click(object sender, EventArgs e)
+        {
+            if (File.Exists(file_to_encrypt.Text))
+            {
+                System.Collections.Specialized.StringCollection replacementList = new System.Collections.Specialized.StringCollection();
+        replacementList.Add(file_to_encrypt.Text);
+        Clipboard.SetFileDropList(replacementList);
+    }
         }
     }
 }

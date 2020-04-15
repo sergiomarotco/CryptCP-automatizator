@@ -31,6 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.button1 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button17 = new System.Windows.Forms.Button();
+            this.button13 = new System.Windows.Forms.Button();
             this.file_to_decrypt = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.button8 = new System.Windows.Forms.Button();
@@ -40,6 +42,8 @@
             this.Work_folder = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.button18 = new System.Windows.Forms.Button();
+            this.button14 = new System.Windows.Forms.Button();
             this.file_to_unsign = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.button9 = new System.Windows.Forms.Button();
@@ -48,6 +52,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.button19 = new System.Windows.Forms.Button();
+            this.button15 = new System.Windows.Forms.Button();
             this.file_to_encrypt = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this.button10 = new System.Windows.Forms.Button();
@@ -56,6 +62,8 @@
             this.label7 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.button20 = new System.Windows.Forms.Button();
+            this.button16 = new System.Windows.Forms.Button();
             this.file_to_sign = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
             this.button11 = new System.Windows.Forms.Button();
@@ -72,15 +80,11 @@
             this.button7 = new System.Windows.Forms.Button();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.button12 = new System.Windows.Forms.Button();
-            this.button13 = new System.Windows.Forms.Button();
-            this.button14 = new System.Windows.Forms.Button();
-            this.button15 = new System.Windows.Forms.Button();
-            this.button16 = new System.Windows.Forms.Button();
-            this.button17 = new System.Windows.Forms.Button();
-            this.button18 = new System.Windows.Forms.Button();
-            this.button19 = new System.Windows.Forms.Button();
-            this.button20 = new System.Windows.Forms.Button();
             this.button21 = new System.Windows.Forms.Button();
+            this.button22 = new System.Windows.Forms.Button();
+            this.button23 = new System.Windows.Forms.Button();
+            this.button24 = new System.Windows.Forms.Button();
+            this.button25 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -89,9 +93,9 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(191, 61);
+            this.button1.Location = new System.Drawing.Point(191, 40);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(158, 23);
+            this.button1.Size = new System.Drawing.Size(125, 43);
             this.button1.TabIndex = 0;
             this.button1.Text = "Расшифровать";
             this.button1.UseVisualStyleBackColor = true;
@@ -101,6 +105,7 @@
             // 
             this.panel1.AllowDrop = true;
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.panel1.Controls.Add(this.button22);
             this.panel1.Controls.Add(this.button17);
             this.panel1.Controls.Add(this.button13);
             this.panel1.Controls.Add(this.file_to_decrypt);
@@ -116,6 +121,26 @@
             this.panel1.TabIndex = 1;
             this.panel1.DragEnter += new System.Windows.Forms.DragEventHandler(this.Panel1_DragEnter);
             // 
+            // button17
+            // 
+            this.button17.Location = new System.Drawing.Point(440, 40);
+            this.button17.Name = "button17";
+            this.button17.Size = new System.Drawing.Size(110, 43);
+            this.button17.TabIndex = 20;
+            this.button17.Text = "Показать конечный";
+            this.button17.UseVisualStyleBackColor = true;
+            this.button17.Click += new System.EventHandler(this.button17_Click);
+            // 
+            // button13
+            // 
+            this.button13.Location = new System.Drawing.Point(322, 41);
+            this.button13.Name = "button13";
+            this.button13.Size = new System.Drawing.Size(112, 43);
+            this.button13.TabIndex = 19;
+            this.button13.Text = "Показать исходный";
+            this.button13.UseVisualStyleBackColor = true;
+            this.button13.Click += new System.EventHandler(this.button13_Click);
+            // 
             // file_to_decrypt
             // 
             this.file_to_decrypt.AutoSize = true;
@@ -128,16 +153,16 @@
             // 
             this.panel5.BackgroundImage = global::CryptCP_automatizator.Properties.Resources.DnD;
             this.panel5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel5.Location = new System.Drawing.Point(828, 0);
+            this.panel5.Location = new System.Drawing.Point(837, 0);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(200, 100);
             this.panel5.TabIndex = 7;
             // 
             // button8
             // 
-            this.button8.Location = new System.Drawing.Point(1034, 35);
+            this.button8.Location = new System.Drawing.Point(1046, 41);
             this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(98, 23);
+            this.button8.Size = new System.Drawing.Size(89, 42);
             this.button8.TabIndex = 6;
             this.button8.Text = "Очистить";
             this.button8.UseVisualStyleBackColor = true;
@@ -193,6 +218,7 @@
             // 
             this.panel2.AllowDrop = true;
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.panel2.Controls.Add(this.button23);
             this.panel2.Controls.Add(this.button18);
             this.panel2.Controls.Add(this.button14);
             this.panel2.Controls.Add(this.file_to_unsign);
@@ -208,6 +234,26 @@
             this.panel2.TabIndex = 5;
             this.panel2.DragEnter += new System.Windows.Forms.DragEventHandler(this.Panel2_DragEnter);
             // 
+            // button18
+            // 
+            this.button18.Location = new System.Drawing.Point(440, 40);
+            this.button18.Name = "button18";
+            this.button18.Size = new System.Drawing.Size(110, 43);
+            this.button18.TabIndex = 21;
+            this.button18.Text = "Показать конечный";
+            this.button18.UseVisualStyleBackColor = true;
+            this.button18.Click += new System.EventHandler(this.button18_Click);
+            // 
+            // button14
+            // 
+            this.button14.Location = new System.Drawing.Point(322, 40);
+            this.button14.Name = "button14";
+            this.button14.Size = new System.Drawing.Size(112, 42);
+            this.button14.TabIndex = 20;
+            this.button14.Text = "Показать исходный";
+            this.button14.UseVisualStyleBackColor = true;
+            this.button14.Click += new System.EventHandler(this.button14_Click);
+            // 
             // file_to_unsign
             // 
             this.file_to_unsign.AutoSize = true;
@@ -220,16 +266,16 @@
             // 
             this.panel6.BackgroundImage = global::CryptCP_automatizator.Properties.Resources.DnD;
             this.panel6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel6.Location = new System.Drawing.Point(828, 0);
+            this.panel6.Location = new System.Drawing.Point(837, 0);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(200, 100);
             this.panel6.TabIndex = 8;
             // 
             // button9
             // 
-            this.button9.Location = new System.Drawing.Point(1034, 35);
+            this.button9.Location = new System.Drawing.Point(1046, 41);
             this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(98, 23);
+            this.button9.Size = new System.Drawing.Size(89, 43);
             this.button9.TabIndex = 6;
             this.button9.Text = "Очистить";
             this.button9.UseVisualStyleBackColor = true;
@@ -266,9 +312,9 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(191, 61);
+            this.button2.Location = new System.Drawing.Point(191, 40);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(158, 23);
+            this.button2.Size = new System.Drawing.Size(125, 43);
             this.button2.TabIndex = 0;
             this.button2.Text = "Проверить подпись";
             this.button2.UseVisualStyleBackColor = true;
@@ -278,6 +324,7 @@
             // 
             this.panel3.AllowDrop = true;
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.panel3.Controls.Add(this.button24);
             this.panel3.Controls.Add(this.button19);
             this.panel3.Controls.Add(this.button15);
             this.panel3.Controls.Add(this.file_to_encrypt);
@@ -293,6 +340,26 @@
             this.panel3.TabIndex = 6;
             this.panel3.DragEnter += new System.Windows.Forms.DragEventHandler(this.Panel3_DragEnter);
             // 
+            // button19
+            // 
+            this.button19.Location = new System.Drawing.Point(440, 40);
+            this.button19.Name = "button19";
+            this.button19.Size = new System.Drawing.Size(110, 43);
+            this.button19.TabIndex = 22;
+            this.button19.Text = "Показать конечный";
+            this.button19.UseVisualStyleBackColor = true;
+            this.button19.Click += new System.EventHandler(this.button19_Click);
+            // 
+            // button15
+            // 
+            this.button15.Location = new System.Drawing.Point(322, 40);
+            this.button15.Name = "button15";
+            this.button15.Size = new System.Drawing.Size(112, 43);
+            this.button15.TabIndex = 21;
+            this.button15.Text = "Показать исходный";
+            this.button15.UseVisualStyleBackColor = true;
+            this.button15.Click += new System.EventHandler(this.button15_Click);
+            // 
             // file_to_encrypt
             // 
             this.file_to_encrypt.AutoSize = true;
@@ -305,16 +372,16 @@
             // 
             this.panel7.BackgroundImage = global::CryptCP_automatizator.Properties.Resources.DnD;
             this.panel7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel7.Location = new System.Drawing.Point(828, 0);
+            this.panel7.Location = new System.Drawing.Point(837, 0);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(200, 100);
             this.panel7.TabIndex = 8;
             // 
             // button10
             // 
-            this.button10.Location = new System.Drawing.Point(1034, 35);
+            this.button10.Location = new System.Drawing.Point(1043, 41);
             this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(101, 23);
+            this.button10.Size = new System.Drawing.Size(89, 42);
             this.button10.TabIndex = 6;
             this.button10.Text = "Очистить";
             this.button10.UseVisualStyleBackColor = true;
@@ -351,9 +418,9 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(191, 61);
+            this.button3.Location = new System.Drawing.Point(191, 40);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(158, 23);
+            this.button3.Size = new System.Drawing.Size(125, 43);
             this.button3.TabIndex = 0;
             this.button3.Text = "Зашифровать";
             this.button3.UseVisualStyleBackColor = true;
@@ -363,10 +430,10 @@
             // 
             this.panel4.AllowDrop = true;
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.panel4.Controls.Add(this.button25);
             this.panel4.Controls.Add(this.button20);
             this.panel4.Controls.Add(this.button16);
             this.panel4.Controls.Add(this.file_to_sign);
-            this.panel4.Controls.Add(this.panel8);
             this.panel4.Controls.Add(this.button11);
             this.panel4.Controls.Add(this.label8);
             this.panel4.Controls.Add(this.FileName_Signed);
@@ -378,6 +445,26 @@
             this.panel4.TabIndex = 7;
             this.panel4.DragEnter += new System.Windows.Forms.DragEventHandler(this.Panel4_DragEnter);
             // 
+            // button20
+            // 
+            this.button20.Location = new System.Drawing.Point(440, 40);
+            this.button20.Name = "button20";
+            this.button20.Size = new System.Drawing.Size(110, 42);
+            this.button20.TabIndex = 23;
+            this.button20.Text = "Показать конечный";
+            this.button20.UseVisualStyleBackColor = true;
+            this.button20.Click += new System.EventHandler(this.button20_Click);
+            // 
+            // button16
+            // 
+            this.button16.Location = new System.Drawing.Point(322, 40);
+            this.button16.Name = "button16";
+            this.button16.Size = new System.Drawing.Size(112, 42);
+            this.button16.TabIndex = 22;
+            this.button16.Text = "Показать исходный";
+            this.button16.UseVisualStyleBackColor = true;
+            this.button16.Click += new System.EventHandler(this.button16_Click);
+            // 
             // file_to_sign
             // 
             this.file_to_sign.AutoSize = true;
@@ -388,18 +475,19 @@
             // 
             // panel8
             // 
+            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.panel8.BackgroundImage = global::CryptCP_automatizator.Properties.Resources.DnD;
             this.panel8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel8.Location = new System.Drawing.Point(828, 0);
+            this.panel8.Location = new System.Drawing.Point(849, 404);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(200, 100);
             this.panel8.TabIndex = 8;
             // 
             // button11
             // 
-            this.button11.Location = new System.Drawing.Point(1034, 35);
+            this.button11.Location = new System.Drawing.Point(1043, 41);
             this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(98, 23);
+            this.button11.Size = new System.Drawing.Size(89, 42);
             this.button11.TabIndex = 6;
             this.button11.Text = "Очистить";
             this.button11.UseVisualStyleBackColor = true;
@@ -436,9 +524,9 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(191, 61);
+            this.button4.Location = new System.Drawing.Point(191, 40);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(158, 23);
+            this.button4.Size = new System.Drawing.Size(125, 43);
             this.button4.TabIndex = 0;
             this.button4.Text = "Подписать";
             this.button4.UseVisualStyleBackColor = true;
@@ -529,86 +617,6 @@
             this.button12.UseVisualStyleBackColor = true;
             this.button12.Click += new System.EventHandler(this.Button12_Click);
             // 
-            // button13
-            // 
-            this.button13.Location = new System.Drawing.Point(355, 61);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(174, 23);
-            this.button13.TabIndex = 19;
-            this.button13.Text = "Показать исходный";
-            this.button13.UseVisualStyleBackColor = true;
-            this.button13.Click += new System.EventHandler(this.button13_Click);
-            // 
-            // button14
-            // 
-            this.button14.Location = new System.Drawing.Point(355, 60);
-            this.button14.Name = "button14";
-            this.button14.Size = new System.Drawing.Size(174, 23);
-            this.button14.TabIndex = 20;
-            this.button14.Text = "Показать исходный";
-            this.button14.UseVisualStyleBackColor = true;
-            this.button14.Click += new System.EventHandler(this.button14_Click);
-            // 
-            // button15
-            // 
-            this.button15.Location = new System.Drawing.Point(355, 60);
-            this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(174, 23);
-            this.button15.TabIndex = 21;
-            this.button15.Text = "Показать исходный";
-            this.button15.UseVisualStyleBackColor = true;
-            this.button15.Click += new System.EventHandler(this.button15_Click);
-            // 
-            // button16
-            // 
-            this.button16.Location = new System.Drawing.Point(355, 60);
-            this.button16.Name = "button16";
-            this.button16.Size = new System.Drawing.Size(174, 23);
-            this.button16.TabIndex = 22;
-            this.button16.Text = "Показать исходный";
-            this.button16.UseVisualStyleBackColor = true;
-            this.button16.Click += new System.EventHandler(this.button16_Click);
-            // 
-            // button17
-            // 
-            this.button17.Location = new System.Drawing.Point(535, 61);
-            this.button17.Name = "button17";
-            this.button17.Size = new System.Drawing.Size(177, 23);
-            this.button17.TabIndex = 20;
-            this.button17.Text = "Показать конечный";
-            this.button17.UseVisualStyleBackColor = true;
-            this.button17.Click += new System.EventHandler(this.button17_Click);
-            // 
-            // button18
-            // 
-            this.button18.Location = new System.Drawing.Point(535, 60);
-            this.button18.Name = "button18";
-            this.button18.Size = new System.Drawing.Size(177, 23);
-            this.button18.TabIndex = 21;
-            this.button18.Text = "Показать конечный";
-            this.button18.UseVisualStyleBackColor = true;
-            this.button18.Click += new System.EventHandler(this.button18_Click);
-            // 
-            // button19
-            // 
-            this.button19.Location = new System.Drawing.Point(535, 60);
-            this.button19.Name = "button19";
-            this.button19.Size = new System.Drawing.Size(177, 23);
-            this.button19.TabIndex = 22;
-            this.button19.Text = "Показать конечный";
-            this.button19.UseVisualStyleBackColor = true;
-            this.button19.Click += new System.EventHandler(this.button19_Click);
-            // 
-            // button20
-            // 
-            this.button20.Location = new System.Drawing.Point(535, 60);
-            this.button20.Name = "button20";
-            this.button20.Size = new System.Drawing.Size(177, 23);
-            this.button20.TabIndex = 23;
-            this.button20.Text = "Показать конечный";
-            this.button20.UseVisualStyleBackColor = true;
-            this.button20.Click += new System.EventHandler(this.button20_Click);
-            // 
             // button21
             // 
             this.button21.Location = new System.Drawing.Point(1000, 32);
@@ -619,6 +627,46 @@
             this.button21.UseVisualStyleBackColor = true;
             this.button21.Click += new System.EventHandler(this.button21_Click);
             // 
+            // button22
+            // 
+            this.button22.Location = new System.Drawing.Point(556, 40);
+            this.button22.Name = "button22";
+            this.button22.Size = new System.Drawing.Size(119, 43);
+            this.button22.TabIndex = 21;
+            this.button22.Text = "Копировать конечный";
+            this.button22.UseVisualStyleBackColor = true;
+            this.button22.Click += new System.EventHandler(this.button22_Click);
+            // 
+            // button23
+            // 
+            this.button23.Location = new System.Drawing.Point(556, 40);
+            this.button23.Name = "button23";
+            this.button23.Size = new System.Drawing.Size(119, 42);
+            this.button23.TabIndex = 22;
+            this.button23.Text = "Копировать конечный";
+            this.button23.UseVisualStyleBackColor = true;
+            this.button23.Click += new System.EventHandler(this.button23_Click);
+            // 
+            // button24
+            // 
+            this.button24.Location = new System.Drawing.Point(556, 40);
+            this.button24.Name = "button24";
+            this.button24.Size = new System.Drawing.Size(119, 43);
+            this.button24.TabIndex = 23;
+            this.button24.Text = "Копировать конечный";
+            this.button24.UseVisualStyleBackColor = true;
+            this.button24.Click += new System.EventHandler(this.button24_Click);
+            // 
+            // button25
+            // 
+            this.button25.Location = new System.Drawing.Point(556, 40);
+            this.button25.Name = "button25";
+            this.button25.Size = new System.Drawing.Size(119, 43);
+            this.button25.TabIndex = 24;
+            this.button25.Text = "Копировать конечный";
+            this.button25.UseVisualStyleBackColor = true;
+            this.button25.Click += new System.EventHandler(this.button25_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -627,6 +675,7 @@
             this.Controls.Add(this.button21);
             this.Controls.Add(this.button12);
             this.Controls.Add(this.linkLabel1);
+            this.Controls.Add(this.panel8);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
@@ -713,6 +762,10 @@
         private System.Windows.Forms.Button button19;
         private System.Windows.Forms.Button button20;
         private System.Windows.Forms.Button button21;
+        private System.Windows.Forms.Button button22;
+        private System.Windows.Forms.Button button23;
+        private System.Windows.Forms.Button button24;
+        private System.Windows.Forms.Button button25;
     }
 }
 
