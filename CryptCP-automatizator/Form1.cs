@@ -534,5 +534,69 @@ namespace CryptCP_automatizator
                 Clipboard.SetFileDropList(replacementList);
             }
         }
+
+        private void button26_Click(object sender, EventArgs e)
+        {
+            if (File.Exists(file_to_unsign.Text))
+            {
+                File.Delete(file_to_unsign.Text);
+            }
+        }
+
+        private void button27_Click(object sender, EventArgs e)
+        {
+            if (File.Exists(file_to_decrypt.Text))
+            {
+                File.Delete(file_to_decrypt.Text);
+            }
+        }
+
+        private void button28_Click(object sender, EventArgs e)
+        {
+            if (File.Exists(file_to_sign.Text))
+            {
+                File.Delete(file_to_sign.Text);
+            }
+        }
+
+        private void button29_Click(object sender, EventArgs e)
+        {
+            if (File.Exists(file_to_encrypt.Text))
+            {
+                File.Delete(file_to_sign.Text);
+            }
+        }
+
+        private void button31_Click(object sender, EventArgs e)
+        {
+            if (File.Exists(file_to_unsign.Text))
+            {
+                File.Delete(file_to_unsign.Text);
+            }
+        }
+
+        private void button32_Click(object sender, EventArgs e)
+        {
+            if (File.Exists(file_to_encrypt.Text))
+            {
+                File.Delete(file_to_encrypt.Text);
+            }
+        }
+
+        private void button33_Click(object sender, EventArgs e)
+        {
+            if (File.Exists(file_to_sign.Text))
+            {
+                File.Delete(file_to_sign.Text);
+            }
+        }
+
+        private void button30_Click(object sender, EventArgs e)
+        {
+            if (File.Exists(file_to_decrypt.Text))
+            {
+                File.Delete(file_to_decrypt.Text);
+            }
+        }
     }
 }
