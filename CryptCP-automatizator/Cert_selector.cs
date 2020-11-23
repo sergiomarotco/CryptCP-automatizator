@@ -13,9 +13,9 @@ namespace CryptCP_automatizator
         {
             InitializeComponent();
             this.Favorite_Certs = Favorite_Certs;
-            listBox2.Items.AddRange(Favorite_Certs);
+            listBox2.Items.AddRange( Favorite_Certs);
         }
-        public Cert_selector(string form_text, string[] Favorite_Certs)
+        public Cert_selector(string form_text,string[] Favorite_Certs)
         {
             InitializeComponent();
             this.Favorite_Certs = Favorite_Certs;
@@ -37,7 +37,7 @@ namespace CryptCP_automatizator
                 string friendlyName = certificate.FriendlyName;
                 string xname = certificate.SubjectName.Name; //obsolete
                 //xname = xname.Substring(3, xname.Length-3);
-                Certs.Add(xname);
+                Certs.Add(xname); 
             }
             listBox1.DataSource = Certs;
             store.Close();
@@ -100,7 +100,7 @@ namespace CryptCP_automatizator
                 listBox2.Items.RemoveAt(listBox2.SelectedIndex);
                 Favorite_Certs = listBox2.Items.OfType<string>().ToArray();
                 listBox2.Focus();
-                if (listBox2.Items.Count != 0)
+                if(listBox2.Items.Count!=0)
                     listBox2.SelectedIndex = 0;
             }
         }
