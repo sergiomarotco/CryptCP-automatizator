@@ -71,6 +71,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AboutBox1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AboutBox1.Designer.cs">
+      <DependentUpon>AboutBox1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Cert_selector.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -85,6 +91,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AboutBox1.resx">
+      <DependentUpon>AboutBox1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Cert_selector.resx">
       <DependentUpon>Cert_selector.cs</DependentUpon>
     </EmbeddedResource>
@@ -139,6 +148,17 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\automatic-flash.png" />
+    <None Include="Resources\clear-format.png" />
+    <None Include="Resources\about.png" />
+    <None Include="Resources\copy.png" />
+    <None Include="Resources\remove-file.png" />
+    <None Include="Resources\magnifying-glass.png" />
+    <None Include="Resources\select file.png" />
+    <None Include="Resources\select folder.png" />
+    <None Include="Resources\search.png" />
+    <None Include="Resources\open.png" />
+    <None Include="Resources\folder.png" />
     <None Include="Resources\icons8-диплом-2-64.ico" />
     <None Include="Resources\DnD.png" />
     <None Include="bin\Debug\icons8-диплом-2-64.ico" />

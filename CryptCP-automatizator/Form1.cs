@@ -36,7 +36,7 @@ namespace CryptCP_automatizator
                 if ((data1.Length == 1) && (data1.GetValue(0) is String))
                 {
                     file_to_unsign.Text = ((string[])data1)[0];
-                    button9.Visible = true;
+                    button8.Visible = true;
                 }
             }
         }
@@ -48,7 +48,7 @@ namespace CryptCP_automatizator
                 if ((data1.Length == 1) && (data1.GetValue(0) is String))
                 {
                     file_to_encrypt.Text = ((string[])data1)[0];
-                    button10.Visible = true;
+                    button8.Visible = true;
                 }
             }
         }
@@ -59,7 +59,7 @@ namespace CryptCP_automatizator
                 if ((data1.Length == 1) && (data1.GetValue(0) is String))
                 {
                     file_to_sign.Text = ((string[])data1)[0];
-                    button11.Visible = true;
+                    button8.Visible = true;
                 }
             }
         }
@@ -77,18 +77,6 @@ namespace CryptCP_automatizator
                         break;
                     case "My_Cert": //    Заполняем поле "Выбранный шаблон документы"
                         My_Cert.Text = parameter[1];
-                        break;
-                    case "FileName_Decrypted": //  Заполняем поле "Выбранный шаблон замены"
-                        FileName_Decrypted.Text = parameter[1];
-                        break;
-                    case "FileName_Encrypted": //  Заполняем поле "Выбранный шаблон замены"
-                        FileName_Encrypted.Text = parameter[1];
-                        break;
-                    case "FileName_Signed": //  Заполняем поле "Выбранный шаблон замены"
-                        FileName_Signed.Text = parameter[1];
-                        break;
-                    case "FileName_UnSigned": //  Заполняем поле "Выбранный шаблон замены"
-                        FileName_UnSigned.Text = parameter[1];
                         break;
                     case "CryptCP_folder": //  Заполняем поле "Выбранный шаблон замены"
                         CryptCP_folder.Text = parameter[1];
@@ -170,10 +158,6 @@ namespace CryptCP_automatizator
                     string[] content = new string[parameters_count];
                     content[0] = "Work_folder\t" + Work_folder.Text;
                     content[1] = "My_Cert\t" + My_Cert.Text;
-                    content[2] = "FileName_Decrypted\t" + FileName_Decrypted.Text;
-                    content[3] = "FileName_Encrypted\t" + FileName_Encrypted.Text;
-                    content[4] = "FileName_Signed\t" + FileName_Signed.Text;
-                    content[5] = "FileName_UnSigned\t" + FileName_UnSigned.Text;
                     content[6] = "CryptCP_folder\t" + CryptCP_folder.Text;
                     content[7] = "Favorite_Certs\t" + String.Join("|", Favorite_Certs);
                     File.WriteAllLines(Environment.CurrentDirectory + "\\Parameters.txt", content);
@@ -210,7 +194,7 @@ namespace CryptCP_automatizator
                 if (openFileDialog1.ShowDialog() == DialogResult.OK)
                 {
                     file_to_sign.Text = openFileDialog1.FileName;
-                    button11.Visible = true;
+                    button8.Visible = true;
                 }
             }
             if (!My_Cert.Text.Equals("CN=InputYourCN"))
@@ -224,12 +208,12 @@ namespace CryptCP_automatizator
                         filename = info.Name.Split('.')[0];
                         filetype = info.Extension;
 
-                        string command = "/K " + @CryptCP_folder.Text + " -sign -dn \"" + @My_Cert.Text + "\" -uMy \"" + @file_to_sign.Text + "\" \"" + @Work_folder.Text + @"\" + filename + "_" + @FileName_Signed.Text + filetype + "\"";
+                        string command = "/K " + @CryptCP_folder.Text + " -sign -dn \"" + @My_Cert.Text + "\" -uMy \"" + @file_to_sign.Text + "\" \"" + @Work_folder.Text + @"\" + filename + "_" + "Signed" + filetype + "\"";
                         startInfo.Arguments = command;
                         Process.Start(startInfo);
                         File.AppendAllText("EventLog.txt", command + Environment.NewLine);
-                        file_to_encrypt.Text = @Work_folder.Text + @"\" + filename + "_" + @FileName_Signed.Text + filetype;
-                        button10.Visible = true;
+                        file_to_encrypt.Text = @Work_folder.Text + @"\" + filename + "_" + "Signed" + filetype;
+
                     }
                     else { MessageBox.Show("Не удается открыть выбранный файл"); }
                 }
@@ -252,7 +236,7 @@ namespace CryptCP_automatizator
                 if (openFileDialog1.ShowDialog() == DialogResult.OK)
                 {
                     file_to_encrypt.Text = openFileDialog1.FileName;
-                    button10.Visible = true;
+                    button8.Visible = true;
                 }
             }
             if (File.Exists(file_to_encrypt.Text))
@@ -261,12 +245,12 @@ namespace CryptCP_automatizator
                 filename = info.Name.Split('.')[0];
                 filetype = info.Extension;
 
-                string command = @"/K " + @CryptCP_folder.Text + " -encr -dn \"" + @Select_Cert("Выберите получателя для зашифрования") + "\" -uMy \"" + @file_to_encrypt.Text + "\" \"" + @Work_folder.Text + @"\" + filename + "_" + @FileName_Encrypted.Text + filetype + "\"";
+                string command = @"/K " + @CryptCP_folder.Text + " -encr -dn \"" + @Select_Cert("Выберите получателя для зашифрования") + "\" -uMy \"" + @file_to_encrypt.Text + "\" \"" + @Work_folder.Text + @"\" + filename + "_" + "Encrypted" + filetype + "\"";
                 startInfo.Arguments = @command;
                 File.AppendAllText("EventLog.txt", command + Environment.NewLine);
                 Process.Start(startInfo);
-                file_to_sign.Text = @Work_folder.Text + @"\" + filename + "_" + @FileName_Encrypted.Text + filetype;
-                button11.Visible = true;
+                file_to_sign.Text = @Work_folder.Text + @"\" + filename + "_" + "Encrypted" + filetype;
+                button8.Visible = true;
             }
         }
         private ProcessStartInfo startInfo = new ProcessStartInfo();
@@ -284,7 +268,7 @@ namespace CryptCP_automatizator
                 if (openFileDialog1.ShowDialog() == DialogResult.OK)
                 {
                     file_to_unsign.Text = openFileDialog1.FileName;
-                    button9.Visible = true;
+                    button8.Visible = true;
                 }
             }
             if (File.Exists(file_to_unsign.Text))
@@ -293,11 +277,11 @@ namespace CryptCP_automatizator
                 filename = info.Name.Split('.')[0];
                 filetype = info.Extension;
 
-                string command = @"/K " + @CryptCP_folder.Text + " -verify -dn \"" + @Select_Cert("Выберите подписавшего") + "\" -uMy \"" + @file_to_unsign.Text + "\" \"" + @Work_folder.Text + @"\" + filename + "_" + FileName_UnSigned.Text + filetype + "\"";
+                string command = @"/K " + @CryptCP_folder.Text + " -verify -dn \"" + @Select_Cert("Выберите подписавшего") + "\" -uMy \"" + @file_to_unsign.Text + "\" \"" + @Work_folder.Text + @"\" + filename + "_" + "UnSigned" + filetype + "\"";
                 File.AppendAllText("EventLog.txt", command + Environment.NewLine);
                 startInfo.Arguments = command;
                 Process.Start(startInfo);
-                file_to_decrypt.Text = @Work_folder.Text + @"\" + filename + "_" + FileName_UnSigned.Text + filetype;
+                file_to_decrypt.Text = @Work_folder.Text + @"\" + filename + "_" + "UnSigned.Text" + filetype;
                 button8.Visible = true;
             }
         }
@@ -329,13 +313,13 @@ namespace CryptCP_automatizator
                         filename = info.Name.Split('.')[0];
                         filetype = info.Extension;
 
-                        string command = @"/K " + @CryptCP_folder.Text + " -decr -dn \"" + @My_Cert.Text + "\" -uMy \"" + @file_to_decrypt.Text + "\" \"" + @Work_folder.Text + @"\" + filename + "_" + @FileName_Decrypted.Text + filetype + "\"";
+                        string command = @"/K " + @CryptCP_folder.Text + " -decr -dn \"" + @My_Cert.Text + "\" -uMy \"" + @file_to_decrypt.Text + "\" \"" + @Work_folder.Text + @"\" + filename + "_" + "Decrypted" + filetype + "\"";
                         startInfo.Arguments = command;
                         File.AppendAllText("EventLog.txt", command + Environment.NewLine);
                         Process.Start(startInfo);
-                        file_to_unsign.Text = @Work_folder.Text + @"\" + filename + "_" + @FileName_Decrypted.Text + filetype;
+                        file_to_unsign.Text = @Work_folder.Text + @"\" + filename + "_" + "Decrypted" + filetype;
 
-                        button9.Visible = true;
+                        button8.Visible = true;
                     }
                     else { MessageBox.Show("Не удается открыть выбранный файл"); }
                 }
@@ -365,23 +349,13 @@ namespace CryptCP_automatizator
 
         private void Button8_Click(object sender, EventArgs e)
         {
-            file_to_decrypt.Text = ""; button8.Visible = false;
+            file_to_decrypt.Text = ""; 
+            file_to_unsign.Text = "";
+            file_to_encrypt.Text = ""; 
+            file_to_sign.Text = "";
+            button8.Visible = false;
         }
 
-        private void Button9_Click(object sender, EventArgs e)
-        {
-            file_to_unsign.Text = ""; button9.Visible = false;
-        }
-
-        private void Button10_Click(object sender, EventArgs e)
-        {
-            file_to_encrypt.Text = ""; button10.Visible = false;
-        }
-
-        private void Button11_Click(object sender, EventArgs e)
-        {
-            file_to_sign.Text = ""; button11.Visible = false;
-        }
 
         private void LinkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
@@ -608,6 +582,22 @@ namespace CryptCP_automatizator
 
                 Save_Parameters();
             }
+        }
+
+        private void button34_Click(object sender, EventArgs e)
+        {
+            AboutBox1 ab = new AboutBox1();
+            ab.Show();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
