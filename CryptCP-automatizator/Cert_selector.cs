@@ -41,7 +41,7 @@ namespace CryptCP_automatizator
             }
             listBox1.DataSource = Certs;
             store.Close();
-            button1.Focus();
+            textBox1.Focus();
         }
 
         internal string Get_Selected_Cert()
