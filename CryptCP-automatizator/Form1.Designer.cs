@@ -31,6 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.button1 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button30 = new System.Windows.Forms.Button();
+            this.button26 = new System.Windows.Forms.Button();
             this.button22 = new System.Windows.Forms.Button();
             this.button17 = new System.Windows.Forms.Button();
             this.button13 = new System.Windows.Forms.Button();
@@ -43,6 +45,8 @@
             this.Work_folder = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.button31 = new System.Windows.Forms.Button();
+            this.button27 = new System.Windows.Forms.Button();
             this.button23 = new System.Windows.Forms.Button();
             this.button18 = new System.Windows.Forms.Button();
             this.button14 = new System.Windows.Forms.Button();
@@ -54,6 +58,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.button32 = new System.Windows.Forms.Button();
+            this.button28 = new System.Windows.Forms.Button();
             this.button24 = new System.Windows.Forms.Button();
             this.button19 = new System.Windows.Forms.Button();
             this.button15 = new System.Windows.Forms.Button();
@@ -65,6 +71,8 @@
             this.label7 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.button33 = new System.Windows.Forms.Button();
+            this.button29 = new System.Windows.Forms.Button();
             this.button25 = new System.Windows.Forms.Button();
             this.button20 = new System.Windows.Forms.Button();
             this.button16 = new System.Windows.Forms.Button();
@@ -85,14 +93,6 @@
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.button12 = new System.Windows.Forms.Button();
             this.button21 = new System.Windows.Forms.Button();
-            this.button26 = new System.Windows.Forms.Button();
-            this.button27 = new System.Windows.Forms.Button();
-            this.button28 = new System.Windows.Forms.Button();
-            this.button29 = new System.Windows.Forms.Button();
-            this.button30 = new System.Windows.Forms.Button();
-            this.button31 = new System.Windows.Forms.Button();
-            this.button32 = new System.Windows.Forms.Button();
-            this.button33 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -130,6 +130,26 @@
             this.panel1.Size = new System.Drawing.Size(1135, 100);
             this.panel1.TabIndex = 1;
             this.panel1.DragEnter += new System.Windows.Forms.DragEventHandler(this.Panel1_DragEnter);
+            // 
+            // button30
+            // 
+            this.button30.Location = new System.Drawing.Point(443, 41);
+            this.button30.Name = "button30";
+            this.button30.Size = new System.Drawing.Size(89, 43);
+            this.button30.TabIndex = 23;
+            this.button30.Text = "Удалить исходный";
+            this.button30.UseVisualStyleBackColor = true;
+            this.button30.Click += new System.EventHandler(this.button30_Click);
+            // 
+            // button26
+            // 
+            this.button26.Location = new System.Drawing.Point(736, 41);
+            this.button26.Name = "button26";
+            this.button26.Size = new System.Drawing.Size(89, 43);
+            this.button26.TabIndex = 22;
+            this.button26.Text = "Удалить конечный";
+            this.button26.UseVisualStyleBackColor = true;
+            this.button26.Click += new System.EventHandler(this.button26_Click);
             // 
             // button22
             // 
@@ -222,6 +242,7 @@
             this.Work_folder.Name = "Work_folder";
             this.Work_folder.Size = new System.Drawing.Size(718, 22);
             this.Work_folder.TabIndex = 3;
+            this.Work_folder.TextChanged += new System.EventHandler(this.Work_folder_TextChanged);
             // 
             // label3
             // 
@@ -254,6 +275,26 @@
             this.panel2.Size = new System.Drawing.Size(1135, 100);
             this.panel2.TabIndex = 5;
             this.panel2.DragEnter += new System.Windows.Forms.DragEventHandler(this.Panel2_DragEnter);
+            // 
+            // button31
+            // 
+            this.button31.Location = new System.Drawing.Point(443, 39);
+            this.button31.Name = "button31";
+            this.button31.Size = new System.Drawing.Size(89, 43);
+            this.button31.TabIndex = 24;
+            this.button31.Text = "Удалить исходный";
+            this.button31.UseVisualStyleBackColor = true;
+            this.button31.Click += new System.EventHandler(this.button31_Click);
+            // 
+            // button27
+            // 
+            this.button27.Location = new System.Drawing.Point(736, 40);
+            this.button27.Name = "button27";
+            this.button27.Size = new System.Drawing.Size(89, 43);
+            this.button27.TabIndex = 23;
+            this.button27.Text = "Удалить конечный";
+            this.button27.UseVisualStyleBackColor = true;
+            this.button27.Click += new System.EventHandler(this.button27_Click);
             // 
             // button23
             // 
@@ -372,6 +413,26 @@
             this.panel3.TabIndex = 6;
             this.panel3.DragEnter += new System.Windows.Forms.DragEventHandler(this.Panel3_DragEnter);
             // 
+            // button32
+            // 
+            this.button32.Location = new System.Drawing.Point(443, 41);
+            this.button32.Name = "button32";
+            this.button32.Size = new System.Drawing.Size(89, 43);
+            this.button32.TabIndex = 25;
+            this.button32.Text = "Удалить исходный";
+            this.button32.UseVisualStyleBackColor = true;
+            this.button32.Click += new System.EventHandler(this.button32_Click);
+            // 
+            // button28
+            // 
+            this.button28.Location = new System.Drawing.Point(736, 41);
+            this.button28.Name = "button28";
+            this.button28.Size = new System.Drawing.Size(89, 43);
+            this.button28.TabIndex = 24;
+            this.button28.Text = "Удалить конечный";
+            this.button28.UseVisualStyleBackColor = true;
+            this.button28.Click += new System.EventHandler(this.button28_Click);
+            // 
             // button24
             // 
             this.button24.Location = new System.Drawing.Point(634, 40);
@@ -487,6 +548,26 @@
             this.panel4.Size = new System.Drawing.Size(1135, 100);
             this.panel4.TabIndex = 7;
             this.panel4.DragEnter += new System.Windows.Forms.DragEventHandler(this.Panel4_DragEnter);
+            // 
+            // button33
+            // 
+            this.button33.Location = new System.Drawing.Point(443, 39);
+            this.button33.Name = "button33";
+            this.button33.Size = new System.Drawing.Size(89, 43);
+            this.button33.TabIndex = 26;
+            this.button33.Text = "Удалить исходный";
+            this.button33.UseVisualStyleBackColor = true;
+            this.button33.Click += new System.EventHandler(this.button33_Click);
+            // 
+            // button29
+            // 
+            this.button29.Location = new System.Drawing.Point(736, 41);
+            this.button29.Name = "button29";
+            this.button29.Size = new System.Drawing.Size(89, 43);
+            this.button29.TabIndex = 25;
+            this.button29.Text = "Удалить конечный";
+            this.button29.UseVisualStyleBackColor = true;
+            this.button29.Click += new System.EventHandler(this.button29_Click);
             // 
             // button25
             // 
@@ -678,86 +759,6 @@
             this.button21.Text = "Открыть";
             this.button21.UseVisualStyleBackColor = true;
             this.button21.Click += new System.EventHandler(this.button21_Click);
-            // 
-            // button26
-            // 
-            this.button26.Location = new System.Drawing.Point(736, 41);
-            this.button26.Name = "button26";
-            this.button26.Size = new System.Drawing.Size(89, 43);
-            this.button26.TabIndex = 22;
-            this.button26.Text = "Удалить конечный";
-            this.button26.UseVisualStyleBackColor = true;
-            this.button26.Click += new System.EventHandler(this.button26_Click);
-            // 
-            // button27
-            // 
-            this.button27.Location = new System.Drawing.Point(736, 40);
-            this.button27.Name = "button27";
-            this.button27.Size = new System.Drawing.Size(89, 43);
-            this.button27.TabIndex = 23;
-            this.button27.Text = "Удалить конечный";
-            this.button27.UseVisualStyleBackColor = true;
-            this.button27.Click += new System.EventHandler(this.button27_Click);
-            // 
-            // button28
-            // 
-            this.button28.Location = new System.Drawing.Point(736, 41);
-            this.button28.Name = "button28";
-            this.button28.Size = new System.Drawing.Size(89, 43);
-            this.button28.TabIndex = 24;
-            this.button28.Text = "Удалить конечный";
-            this.button28.UseVisualStyleBackColor = true;
-            this.button28.Click += new System.EventHandler(this.button28_Click);
-            // 
-            // button29
-            // 
-            this.button29.Location = new System.Drawing.Point(736, 41);
-            this.button29.Name = "button29";
-            this.button29.Size = new System.Drawing.Size(89, 43);
-            this.button29.TabIndex = 25;
-            this.button29.Text = "Удалить конечный";
-            this.button29.UseVisualStyleBackColor = true;
-            this.button29.Click += new System.EventHandler(this.button29_Click);
-            // 
-            // button30
-            // 
-            this.button30.Location = new System.Drawing.Point(443, 41);
-            this.button30.Name = "button30";
-            this.button30.Size = new System.Drawing.Size(89, 43);
-            this.button30.TabIndex = 23;
-            this.button30.Text = "Удалить исходный";
-            this.button30.UseVisualStyleBackColor = true;
-            this.button30.Click += new System.EventHandler(this.button30_Click);
-            // 
-            // button31
-            // 
-            this.button31.Location = new System.Drawing.Point(443, 39);
-            this.button31.Name = "button31";
-            this.button31.Size = new System.Drawing.Size(89, 43);
-            this.button31.TabIndex = 24;
-            this.button31.Text = "Удалить исходный";
-            this.button31.UseVisualStyleBackColor = true;
-            this.button31.Click += new System.EventHandler(this.button31_Click);
-            // 
-            // button32
-            // 
-            this.button32.Location = new System.Drawing.Point(443, 41);
-            this.button32.Name = "button32";
-            this.button32.Size = new System.Drawing.Size(89, 43);
-            this.button32.TabIndex = 25;
-            this.button32.Text = "Удалить исходный";
-            this.button32.UseVisualStyleBackColor = true;
-            this.button32.Click += new System.EventHandler(this.button32_Click);
-            // 
-            // button33
-            // 
-            this.button33.Location = new System.Drawing.Point(443, 39);
-            this.button33.Name = "button33";
-            this.button33.Size = new System.Drawing.Size(89, 43);
-            this.button33.TabIndex = 26;
-            this.button33.Text = "Удалить исходный";
-            this.button33.UseVisualStyleBackColor = true;
-            this.button33.Click += new System.EventHandler(this.button33_Click);
             // 
             // Form1
             // 

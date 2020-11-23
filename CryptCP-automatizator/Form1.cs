@@ -598,5 +598,16 @@ namespace CryptCP_automatizator
                 File.Delete(file_to_decrypt.Text);
             }
         }
+
+        private void Work_folder_TextChanged(object sender, EventArgs e)
+        {
+            if (Directory.Exists(Work_folder.Text))
+            {
+                Work_folder.Text = Work_folder.Text;
+
+
+                Save_Parameters();
+            }
+        }
     }
 }
