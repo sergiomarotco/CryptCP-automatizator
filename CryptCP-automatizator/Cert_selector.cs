@@ -7,23 +7,52 @@ using System.Windows.Forms;
 
 namespace CryptCP_automatizator
 {
+    /// <summary>
+    /// Класс выбора сертификата.
+    /// </summary>
     public partial class Cert_selector : Form
     {
-        public Cert_selector(string[] Favorite_Certs)
+        private string[] favoriteCerts;
+        private List<string> certs = new List<string>();
+        private string selectedCert = string.Empty;
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Cert_selector"/> class.
+        /// </summary>
+        /// <param name="form_text">Отображаемый заголовок формы.</param>
+        /// <param name="favorite_Certs">Список избранных сертификатов.</param>
+        public Cert_selector(string form_text, string[] favorite_Certs)
         {
             InitializeComponent();
-            this.Favorite_Certs = Favorite_Certs;
-            listBox2.Items.AddRange( Favorite_Certs);
-        }
-        public Cert_selector(string form_text,string[] Favorite_Certs)
-        {
-            InitializeComponent();
-            this.Favorite_Certs = Favorite_Certs;
+            this.favoriteCerts = favorite_Certs;
             this.Text = form_text;
-            listBox2.Items.AddRange(Favorite_Certs);
+            listBox2.Items.AddRange(favorite_Certs);
         }
-        string Selected_Cert = "";
-        public List<string> Certs = new List<string>();
+
+        /*protected Cert_selector(string[] favorite_Certs)
+        {
+            InitializeComponent();
+            this.Favorite_Certs = favorite_Certs;
+            listBox2.Items.AddRange(favorite_Certs);
+        }*/
+
+        /// <summary>
+        /// Gets список выбранных сертификатов.
+        /// </summary>
+        /// <returns>Список выбранных сертификатов.</returns>
+        internal string Get_Selected_Cert()
+        {
+            return selectedCert;
+        }
+
+        /// <summary>
+        /// Возвращает список избранных сертификатов.
+        /// </summary>
+        /// <returns>Список избранных сертификатов.</returns>
+        internal string[] Get_Favorite_Certs()
+        {
+            return favoriteCerts;
+        }
 
         private void Cert_selector_Load(object sender, EventArgs e)
         {
@@ -34,21 +63,15 @@ namespace CryptCP_automatizator
             var certificates = store.Certificates;
             foreach (var certificate in certificates)
             {
-                string friendlyName = certificate.FriendlyName;
-                string xname = certificate.SubjectName.Name; //obsolete
-                //xname = xname.Substring(3, xname.Length-3);
-                Certs.Add(xname); 
+                _ = certificate.FriendlyName;
+                certs.Add(certificate.SubjectName.Name);
             }
-            listBox1.DataSource = Certs;
+
+            listBox1.DataSource = certs;
             store.Close();
             textBox1.Focus();
             textBox1.Select();
             this.ActiveControl = textBox1;
-        }
-
-        internal string Get_Selected_Cert()
-        {
-            return Selected_Cert;
         }
 
         private void Button2_Click(object sender, EventArgs e)
@@ -66,9 +89,13 @@ namespace CryptCP_automatizator
         private void TextBox1_TextChanged(object sender, EventArgs e)
         {
             if (textBox1.Text.Length > 0)
-                listBox1.DataSource = Certs.Where(c => c.ToLower().Contains(textBox1.Text.ToLower())).ToList();
+            {
+                listBox1.DataSource = certs.Where(c => c.ToLower().Contains(textBox1.Text.ToLower())).ToList();
+            }
             else
-                listBox1.DataSource = Certs;
+            {
+                listBox1.DataSource = certs;
+            }
         }
 
         private void ListBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -78,8 +105,8 @@ namespace CryptCP_automatizator
                 string xname = listBox1.SelectedItem.ToString().Split(',')[0];
                 xname = xname.Substring(3, xname.Length - 3);
                 xname = xname.Trim('"');
-                xname = xname.Replace("\"", "\"\"");//экранируем кавычки для тупого cmd
-                Selected_Cert = xname;
+                xname = xname.Replace("\"", "\"\""); // экранируем кавычки для тупого cmd
+                selectedCert = xname;
                 label4.Text = xname;
             }
         }
@@ -87,12 +114,7 @@ namespace CryptCP_automatizator
         private void Button3_Click(object sender, EventArgs e)
         {
             listBox2.Items.Add(listBox1.SelectedItem);
-            Favorite_Certs = listBox2.Items.OfType<string>().ToArray();
-        }
-        string[] Favorite_Certs;
-        internal string[] Get_Favorite_Certs()
-        {
-            return Favorite_Certs;
+            favoriteCerts = listBox2.Items.OfType<string>().ToArray();
         }
 
         private void Button4_Click(object sender, EventArgs e)
@@ -100,10 +122,12 @@ namespace CryptCP_automatizator
             if (listBox2.SelectedIndex != -1)
             {
                 listBox2.Items.RemoveAt(listBox2.SelectedIndex);
-                Favorite_Certs = listBox2.Items.OfType<string>().ToArray();
+                favoriteCerts = listBox2.Items.OfType<string>().ToArray();
                 listBox2.Focus();
-                if(listBox2.Items.Count!=0)
+                if (listBox2.Items.Count != 0)
+                {
                     listBox2.SelectedIndex = 0;
+                }
             }
         }
 
@@ -111,7 +135,7 @@ namespace CryptCP_automatizator
         {
             if (e.CloseReason == CloseReason.UserClosing)
             {
-                Favorite_Certs = listBox2.Items.OfType<string>().ToArray();
+                favoriteCerts = listBox2.Items.OfType<string>().ToArray();
             }
             else
             {
@@ -124,31 +148,31 @@ namespace CryptCP_automatizator
         {
             if (listBox2.SelectedItems.Count > 0)
             {
-                Selected_Cert = listBox2.SelectedItem.ToString();
-                label4.Text = Selected_Cert;
+                selectedCert = listBox2.SelectedItem.ToString();
+                label4.Text = selectedCert;
             }
         }
 
-        private void listBox2_MouseDoubleClick(object sender, MouseEventArgs e)
-        {//https://github.com/sergiomarotco/CryptCP-automatizator/issues/4
+        private void ListBox2_MouseDoubleClick(object sender, MouseEventArgs e)
+        { // https://github.com/sergiomarotco/CryptCP-automatizator/issues/4
             if (listBox2.SelectedItems.Count > 0)
             {
-                Selected_Cert = listBox2.SelectedItem.ToString();
-                label4.Text = Selected_Cert;
+                selectedCert = listBox2.SelectedItem.ToString();
+                label4.Text = selectedCert;
                 DialogResult = DialogResult.OK;
                 this.Close();
             }
         }
 
-        private void listBox1_MouseDoubleClick(object sender, MouseEventArgs e)
+        private void ListBox1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             if (listBox1.SelectedItems.Count > 0)
             {
                 string xname = listBox1.SelectedItem.ToString().Split(',')[0];
                 xname = xname.Substring(3, xname.Length - 3);
                 xname = xname.Trim('"');
-                xname = xname.Replace("\"", "\"\"");//экранируем кавычки для тупого cmd
-                Selected_Cert = xname;
+                xname = xname.Replace("\"", "\"\""); // экранируем кавычки для тупого cmd
+                selectedCert = xname;
                 label4.Text = xname;
                 DialogResult = DialogResult.OK;
                 this.Close();

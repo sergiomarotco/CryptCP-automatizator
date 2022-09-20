@@ -136,7 +136,7 @@
             this.button30.TabIndex = 23;
             this.toolTip3.SetToolTip(this.button30, "Удалить исходный файл");
             this.button30.UseVisualStyleBackColor = true;
-            this.button30.Click += new System.EventHandler(this.button30_Click);
+            this.button30.Click += new System.EventHandler(this.Button30_Click);
             // 
             // button26
             // 
@@ -148,7 +148,7 @@
             this.button26.TabIndex = 22;
             this.toolTip5.SetToolTip(this.button26, "Удалить конечный файл");
             this.button26.UseVisualStyleBackColor = true;
-            this.button26.Click += new System.EventHandler(this.button26_Click);
+            this.button26.Click += new System.EventHandler(this.Button26_Click);
             // 
             // button22
             // 
@@ -160,7 +160,7 @@
             this.button22.TabIndex = 21;
             this.toolTip4.SetToolTip(this.button22, "Копировать конечный файл в буфер обмена");
             this.button22.UseVisualStyleBackColor = true;
-            this.button22.Click += new System.EventHandler(this.button22_Click);
+            this.button22.Click += new System.EventHandler(this.Button22_Click);
             // 
             // button17
             // 
@@ -172,7 +172,7 @@
             this.button17.TabIndex = 20;
             this.toolTip1.SetToolTip(this.button17, "Открыть папку с конечным файлом");
             this.button17.UseVisualStyleBackColor = true;
-            this.button17.Click += new System.EventHandler(this.button17_Click);
+            this.button17.Click += new System.EventHandler(this.Button17_Click);
             // 
             // button13
             // 
@@ -186,7 +186,7 @@
             this.button13.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.toolTip2.SetToolTip(this.button13, "Открыть папку с исходным файлом");
             this.button13.UseVisualStyleBackColor = true;
-            this.button13.Click += new System.EventHandler(this.button13_Click);
+            this.button13.Click += new System.EventHandler(this.Button13_Click);
             // 
             // file_to_decrypt
             // 
@@ -265,7 +265,7 @@
             this.button31.TabIndex = 24;
             this.toolTip3.SetToolTip(this.button31, "Удалить исходный файл");
             this.button31.UseVisualStyleBackColor = true;
-            this.button31.Click += new System.EventHandler(this.button31_Click);
+            this.button31.Click += new System.EventHandler(this.Button31_Click);
             // 
             // button27
             // 
@@ -277,7 +277,7 @@
             this.button27.TabIndex = 23;
             this.toolTip5.SetToolTip(this.button27, "Удалить конечный файл");
             this.button27.UseVisualStyleBackColor = true;
-            this.button27.Click += new System.EventHandler(this.button27_Click);
+            this.button27.Click += new System.EventHandler(this.Button27_Click);
             // 
             // button23
             // 
@@ -289,7 +289,7 @@
             this.button23.TabIndex = 22;
             this.toolTip4.SetToolTip(this.button23, "Копировать конечный файл в буфер обмена");
             this.button23.UseVisualStyleBackColor = true;
-            this.button23.Click += new System.EventHandler(this.button23_Click);
+            this.button23.Click += new System.EventHandler(this.Button23_Click);
             // 
             // button18
             // 
@@ -301,7 +301,7 @@
             this.button18.TabIndex = 21;
             this.toolTip1.SetToolTip(this.button18, "Открыть папку с конечным файлом");
             this.button18.UseVisualStyleBackColor = true;
-            this.button18.Click += new System.EventHandler(this.button18_Click);
+            this.button18.Click += new System.EventHandler(this.Button18_Click);
             // 
             // button14
             // 
@@ -315,7 +315,7 @@
             this.button14.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.toolTip2.SetToolTip(this.button14, "Открыть папку с исходным файлом");
             this.button14.UseVisualStyleBackColor = true;
-            this.button14.Click += new System.EventHandler(this.button14_Click);
+            this.button14.Click += new System.EventHandler(this.Button14_Click);
             // 
             // file_to_unsign
             // 
@@ -373,7 +373,7 @@
             this.button32.TabIndex = 25;
             this.toolTip3.SetToolTip(this.button32, "Удалить исходный файл");
             this.button32.UseVisualStyleBackColor = true;
-            this.button32.Click += new System.EventHandler(this.button32_Click);
+            this.button32.Click += new System.EventHandler(this.Button32_Click);
             // 
             // button28
             // 
@@ -385,7 +385,7 @@
             this.button28.TabIndex = 24;
             this.toolTip5.SetToolTip(this.button28, "Удалить конечный файл");
             this.button28.UseVisualStyleBackColor = true;
-            this.button28.Click += new System.EventHandler(this.button28_Click);
+            this.button28.Click += new System.EventHandler(this.Button28_Click);
             // 
             // button24
             // 
@@ -397,7 +397,7 @@
             this.button24.TabIndex = 23;
             this.toolTip4.SetToolTip(this.button24, "Копировать конечный файл в буфер обмена");
             this.button24.UseVisualStyleBackColor = true;
-            this.button24.Click += new System.EventHandler(this.button24_Click);
+            this.button24.Click += new System.EventHandler(this.Button24_Click);
             // 
             // button19
             // 
@@ -409,7 +409,7 @@
             this.button19.TabIndex = 22;
             this.toolTip1.SetToolTip(this.button19, "Открыть папку с конечным файлом");
             this.button19.UseVisualStyleBackColor = true;
-            this.button19.Click += new System.EventHandler(this.button19_Click);
+            this.button19.Click += new System.EventHandler(this.Button19_Click);
             // 
             // button15
             // 
@@ -423,7 +423,7 @@
             this.button15.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.toolTip2.SetToolTip(this.button15, "Открыть папку с исходным файлом");
             this.button15.UseVisualStyleBackColor = true;
-            this.button15.Click += new System.EventHandler(this.button15_Click);
+            this.button15.Click += new System.EventHandler(this.Button15_Click);
             // 
             // file_to_encrypt
             // 
@@ -481,7 +481,7 @@
             this.button33.TabIndex = 26;
             this.toolTip3.SetToolTip(this.button33, "Удалить исходный файл");
             this.button33.UseVisualStyleBackColor = true;
-            this.button33.Click += new System.EventHandler(this.button33_Click);
+            this.button33.Click += new System.EventHandler(this.Button33_Click);
             // 
             // button29
             // 
@@ -493,7 +493,7 @@
             this.button29.TabIndex = 25;
             this.toolTip5.SetToolTip(this.button29, "Удалить конечный файл");
             this.button29.UseVisualStyleBackColor = true;
-            this.button29.Click += new System.EventHandler(this.button29_Click);
+            this.button29.Click += new System.EventHandler(this.Button29_Click);
             // 
             // button25
             // 
@@ -505,7 +505,7 @@
             this.button25.TabIndex = 24;
             this.toolTip4.SetToolTip(this.button25, "Копировать конечный файл в буфер обмена");
             this.button25.UseVisualStyleBackColor = true;
-            this.button25.Click += new System.EventHandler(this.button25_Click);
+            this.button25.Click += new System.EventHandler(this.Button25_Click);
             // 
             // button20
             // 
@@ -517,7 +517,7 @@
             this.button20.TabIndex = 23;
             this.toolTip1.SetToolTip(this.button20, "Открыть папку с конечным файлом");
             this.button20.UseVisualStyleBackColor = true;
-            this.button20.Click += new System.EventHandler(this.button20_Click);
+            this.button20.Click += new System.EventHandler(this.Button20_Click);
             // 
             // button16
             // 
@@ -531,7 +531,7 @@
             this.button16.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.toolTip2.SetToolTip(this.button16, "Открыть папку с исходным файлом");
             this.button16.UseVisualStyleBackColor = true;
-            this.button16.Click += new System.EventHandler(this.button16_Click);
+            this.button16.Click += new System.EventHandler(this.Button16_Click);
             // 
             // file_to_sign
             // 
@@ -654,7 +654,7 @@
             this.button21.TabIndex = 19;
             this.toolTip10.SetToolTip(this.button21, "Открыть папку с файлом программы КриптоПро cryptcp");
             this.button21.UseVisualStyleBackColor = true;
-            this.button21.Click += new System.EventHandler(this.button21_Click);
+            this.button21.Click += new System.EventHandler(this.Button21_Click);
             // 
             // button34
             // 
@@ -666,7 +666,7 @@
             this.button34.TabIndex = 20;
             this.toolTip12.SetToolTip(this.button34, "Окно \"О программе\"");
             this.button34.UseVisualStyleBackColor = true;
-            this.button34.Click += new System.EventHandler(this.button34_Click);
+            this.button34.Click += new System.EventHandler(this.Button34_Click);
             // 
             // toolTip1
             // 
