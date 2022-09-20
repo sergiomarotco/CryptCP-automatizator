@@ -153,7 +153,6 @@ namespace CryptCP_automatizator
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "Сайт программы";
             this.linkLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // AboutBox1
             // 
