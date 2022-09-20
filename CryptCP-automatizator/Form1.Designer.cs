@@ -64,11 +64,11 @@
             this.button33 = new System.Windows.Forms.Button();
             this.button29 = new System.Windows.Forms.Button();
             this.button25 = new System.Windows.Forms.Button();
+            this.panel8 = new System.Windows.Forms.Panel();
             this.button20 = new System.Windows.Forms.Button();
             this.button16 = new System.Windows.Forms.Button();
             this.file_to_sign = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
-            this.panel8 = new System.Windows.Forms.Panel();
             this.label10 = new System.Windows.Forms.Label();
             this.My_Cert = new System.Windows.Forms.TextBox();
             this.button5 = new System.Windows.Forms.Button();
@@ -177,13 +177,13 @@
             // button13
             // 
             this.button13.AccessibleDescription = "Открыть исходный файл";
-            this.button13.Image = global::CryptCP_automatizator.Properties.Resources.open;
+            this.button13.BackgroundImage = global::CryptCP_automatizator.Properties.Resources.open;
+            this.button13.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button13.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button13.Location = new System.Drawing.Point(19, 9);
             this.button13.Name = "button13";
             this.button13.Size = new System.Drawing.Size(32, 32);
             this.button13.TabIndex = 19;
-            this.button13.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.toolTip2.SetToolTip(this.button13, "Открыть папку с исходным файлом");
             this.button13.UseVisualStyleBackColor = true;
             this.button13.Click += new System.EventHandler(this.Button13_Click);
@@ -193,7 +193,7 @@
             this.file_to_decrypt.AutoSize = true;
             this.file_to_decrypt.Location = new System.Drawing.Point(10, 45);
             this.file_to_decrypt.Name = "file_to_decrypt";
-            this.file_to_decrypt.Size = new System.Drawing.Size(0, 17);
+            this.file_to_decrypt.Size = new System.Drawing.Size(0, 16);
             this.file_to_decrypt.TabIndex = 5;
             // 
             // panel5
@@ -233,7 +233,7 @@
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label3.Location = new System.Drawing.Point(9, 11);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(108, 17);
+            this.label3.Size = new System.Drawing.Size(105, 16);
             this.label3.TabIndex = 4;
             this.label3.Text = "Рабочая папка";
             // 
@@ -306,13 +306,12 @@
             // button14
             // 
             this.button14.AccessibleDescription = "Открыть исходный файл";
-            this.button14.Image = ((System.Drawing.Image)(resources.GetObject("button14.Image")));
-            this.button14.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button14.BackgroundImage = global::CryptCP_automatizator.Properties.Resources.open;
+            this.button14.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button14.Location = new System.Drawing.Point(19, 8);
             this.button14.Name = "button14";
             this.button14.Size = new System.Drawing.Size(32, 32);
             this.button14.TabIndex = 20;
-            this.button14.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.toolTip2.SetToolTip(this.button14, "Открыть папку с исходным файлом");
             this.button14.UseVisualStyleBackColor = true;
             this.button14.Click += new System.EventHandler(this.Button14_Click);
@@ -322,7 +321,7 @@
             this.file_to_unsign.AutoSize = true;
             this.file_to_unsign.Location = new System.Drawing.Point(10, 45);
             this.file_to_unsign.Name = "file_to_unsign";
-            this.file_to_unsign.Size = new System.Drawing.Size(0, 17);
+            this.file_to_unsign.Size = new System.Drawing.Size(0, 16);
             this.file_to_unsign.TabIndex = 5;
             // 
             // panel6
@@ -414,13 +413,12 @@
             // button15
             // 
             this.button15.AccessibleDescription = "Открыть исходный файл";
-            this.button15.Image = ((System.Drawing.Image)(resources.GetObject("button15.Image")));
-            this.button15.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button15.BackgroundImage = global::CryptCP_automatizator.Properties.Resources.open;
+            this.button15.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button15.Location = new System.Drawing.Point(19, 8);
             this.button15.Name = "button15";
             this.button15.Size = new System.Drawing.Size(32, 32);
             this.button15.TabIndex = 21;
-            this.button15.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.toolTip2.SetToolTip(this.button15, "Открыть папку с исходным файлом");
             this.button15.UseVisualStyleBackColor = true;
             this.button15.Click += new System.EventHandler(this.Button15_Click);
@@ -430,7 +428,7 @@
             this.file_to_encrypt.AutoSize = true;
             this.file_to_encrypt.Location = new System.Drawing.Point(10, 47);
             this.file_to_encrypt.Name = "file_to_encrypt";
-            this.file_to_encrypt.Size = new System.Drawing.Size(0, 17);
+            this.file_to_encrypt.Size = new System.Drawing.Size(0, 16);
             this.file_to_encrypt.TabIndex = 5;
             // 
             // panel7
@@ -507,6 +505,17 @@
             this.button25.UseVisualStyleBackColor = true;
             this.button25.Click += new System.EventHandler(this.Button25_Click);
             // 
+            // panel8
+            // 
+            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.panel8.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel8.BackgroundImage")));
+            this.panel8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel8.Location = new System.Drawing.Point(748, 0);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(200, 71);
+            this.panel8.TabIndex = 8;
+            this.toolTip13.SetToolTip(this.panel8, "Перетащите сюда файл для обработки");
+            // 
             // button20
             // 
             this.button20.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button20.BackgroundImage")));
@@ -522,13 +531,12 @@
             // button16
             // 
             this.button16.AccessibleDescription = "Открыть исходный файл";
-            this.button16.Image = ((System.Drawing.Image)(resources.GetObject("button16.Image")));
-            this.button16.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button16.BackgroundImage = global::CryptCP_automatizator.Properties.Resources.open;
+            this.button16.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button16.Location = new System.Drawing.Point(19, 8);
             this.button16.Name = "button16";
             this.button16.Size = new System.Drawing.Size(32, 32);
             this.button16.TabIndex = 22;
-            this.button16.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.toolTip2.SetToolTip(this.button16, "Открыть папку с исходным файлом");
             this.button16.UseVisualStyleBackColor = true;
             this.button16.Click += new System.EventHandler(this.Button16_Click);
@@ -538,7 +546,7 @@
             this.file_to_sign.AutoSize = true;
             this.file_to_sign.Location = new System.Drawing.Point(10, 46);
             this.file_to_sign.Name = "file_to_sign";
-            this.file_to_sign.Size = new System.Drawing.Size(0, 17);
+            this.file_to_sign.Size = new System.Drawing.Size(0, 16);
             this.file_to_sign.TabIndex = 5;
             // 
             // button4
@@ -551,24 +559,13 @@
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.Button4_Sign);
             // 
-            // panel8
-            // 
-            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.panel8.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel8.BackgroundImage")));
-            this.panel8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel8.Location = new System.Drawing.Point(748, 0);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(200, 71);
-            this.panel8.TabIndex = 8;
-            this.toolTip13.SetToolTip(this.panel8, "Перетащите сюда файл для обработки");
-            // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label10.Location = new System.Drawing.Point(9, 71);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(131, 17);
+            this.label10.Size = new System.Drawing.Size(129, 16);
             this.label10.TabIndex = 4;
             this.label10.Text = "Сертификат КПЭП";
             // 
@@ -609,7 +606,7 @@
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label11.Location = new System.Drawing.Point(9, 42);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(114, 17);
+            this.label11.Size = new System.Drawing.Size(110, 16);
             this.label11.TabIndex = 4;
             this.label11.Text = "Путь до CryptCP";
             // 
